@@ -174,14 +174,87 @@ const char *runnum_char = runnum_temp.c_str();
   string input_directory = "/volatile/halla/sbs/ewertz/GMn_replays/rootfiles/Standard/"; 
   const char *input_directory_char = input_directory.c_str();	
 //To implement multiple files or that is replay segments use a for loop
-	for(int iseg=0; iseg<=numseg; iseg++){
+	//for(int iseg=0; iseg<=numseg; iseg++){
+	for(int iseg=0; iseg<=135; iseg++){
 	//If the file name format changed this will of course need to change
 	std::string iseg_temp = std::to_string(iseg);
 	const char *iseg_char = iseg_temp.c_str();
-	TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
+	//TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
+	TString inputfile = Form("%se1209019_fullreplay_12912_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
 	//cout << "My name " << inputfile << endl;
 	C->Add(inputfile);
 	}
+
+ 	//for(int iseg=0; iseg<=numseg; iseg++){
+        for(int iseg=0; iseg<=102; iseg++){
+	//If the file name format changed this will of course need to change
+       std::string iseg_temp = std::to_string(iseg);
+       const char *iseg_char = iseg_temp.c_str();
+      // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
+       TString inputfile = Form("%se1209019_fullreplay_12915_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+	 //cout << "My name " << inputfile << endl;
+        C->Add(inputfile);
+        }
+        
+
+	for(int iseg=0; iseg<=136; iseg++){
+        //If the file name format changed this will of course need to change
+       std::string iseg_temp = std::to_string(iseg);
+       const char *iseg_char = iseg_temp.c_str();
+       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
+        TString inputfile = Form("%se1209019_fullreplay_12916_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+        //cout << "My name " << inputfile << endl;
+        C->Add(inputfile);
+        }
+        
+
+	for(int iseg=0; iseg<=136; iseg++){
+        //If the file name format changed this will of course need to change
+        std::string iseg_temp = std::to_string(iseg);
+         const char *iseg_char = iseg_temp.c_str();
+       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
+        TString inputfile = Form("%se1209019_fullreplay_12917_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+       //cout << "My name " << inputfile << endl;
+        C->Add(inputfile);
+         }
+                                                             
+	
+	for(int iseg=0; iseg<=139; iseg++){
+        //If the file name format changed this will of course need to change
+       std::string iseg_temp = std::to_string(iseg);
+        const char *iseg_char = iseg_temp.c_str();
+       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
+        TString inputfile = Form("%se1209019_fullreplay_12918_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+       //cout << "My name " << inputfile << endl;
+         C->Add(inputfile);
+          }
+                                                            
+	for(int iseg=0; iseg<=137; iseg++){
+        std::string iseg_temp = std::to_string(iseg);
+        const char *iseg_char = iseg_temp.c_str();
+       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
+       TString inputfile = Form("%se1209019_fullreplay_12919_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+       C->Add(inputfile);
+        }
+	
+	 for(int iseg=0; iseg<=148; iseg++){
+        std::string iseg_temp = std::to_string(iseg);
+        const char *iseg_char = iseg_temp.c_str();
+       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
+     	 TString inputfile = Form("%se1209019_fullreplay_12920_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+       C->Add(inputfile);
+        }
+
+	
+	 //for(int iseg=0; iseg<=62; iseg++){
+       // std::string iseg_temp = std::to_string(iseg);
+       // const char *iseg_char = iseg_temp.c_str();
+       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);       
+	// TString inputfile = Form("%se1209019_fullreplay_12647_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+      // C->Add(inputfile);
+       // }
+
+
 
   C->Print();
   //some variables that are useful, for some reason
@@ -984,9 +1057,9 @@ const char *runnum_char = runnum_temp.c_str();
 	YGain_APV_all->SetLineColor(0);
 	
 	gStyle->SetOptStat("neMRou");
-	TH1D *Gain_histo_all = new TH1D("hGainCoefficient_Histo","",200,0,2);
-	TH1D *XGain_histo_all = new TH1D("hUX_GainCoefficient_Histo","",200,0,2);	
-	TH1D *YGain_histo_all = new TH1D("hVY_GainCoefficient_Histo","",200,0,2);
+	TH1D *Gain_histo_all = new TH1D("hGainCoefficient_Histo","",200,0,4);
+	TH1D *XGain_histo_all = new TH1D("hUX_GainCoefficient_Histo","",200,0,4);	
+	TH1D *YGain_histo_all = new TH1D("hVY_GainCoefficient_Histo","",200,0,4);
 	
 	int bestcount = 0;
 	int mycountx = 0;
@@ -1019,8 +1092,8 @@ const char *runnum_char = runnum_temp.c_str();
         YGain_APV_mod->SetMarkerStyle(kFullDotLarge);
         YGain_APV_mod->SetLineColor(0);
 	
-	TH1D *XGain_histo_mod = new TH1D(myNameX,"",200,0,2);
-        TH1D *YGain_histo_mod = new TH1D(myNameY,"",200,0,2);	
+	TH1D *XGain_histo_mod = new TH1D(myNameX,"",200,0,4);
+        TH1D *YGain_histo_mod = new TH1D(myNameY,"",200,0,4);	
 		for(int x = 0; x < Xtemp.size(); x++){
 		double myXgain = Xtemp.at(x);
 		//Fill both histos properly
