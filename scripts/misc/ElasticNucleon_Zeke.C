@@ -8,17 +8,74 @@
 #include "TLorentzVector.h"
 #include "TVector3.h"
 #include "TMath.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
 
-void ElasticNucleon_Zeke( const char *rootfilename, double Ebeam=4.291, double bbtheta=29.5, double sbstheta=34.7, double sbsdist=2.8, double hcaldist=17.0, double sbsfieldscale=1.0){
+void ElasticNucleon_Zeke( double runnum, const char *data_file_name, double Ebeam=4.291, double bbtheta=29.5, double sbstheta=34.7, double sbsdist=2.8, double hcaldist=17.0, double sbsfieldscale=1.0){
+ stringstream ss;
+ ss << runnum;
+ std::string runnum_temp;
+ ss >> runnum_temp;
+ const char *runnum_char = runnum_temp.c_str();
+ TString runnum_string(runnum_char);
+ //cout << runnum_char << endl;
+ ifstream datafile(data_file_name);
+ TString currentLine;
+ TString datRun,pass,kinematic,target;
+ bool gotRun = false;
+ while(currentLine.ReadLine(datafile)){
+ if(currentLine.BeginsWith("#")){
+ 	//Treat # as comments and ignore them
+ 	//cout << "Cond 1" << endl;
+	continue;
+  }
+ else if(currentLine.BeginsWith(runnum_string)){
+  //We found the right run number. Store the info
+  
+  TObjArray *tokens = currentLine.Tokenize(" ");
+  //Assuming ordering is runnum, pass, SBSKin, Target
+  datRun =  ((TObjString*) (*tokens)[0])->GetString();
+  pass = ((TObjString*) (*tokens)[1])->GetString();
+  kinematic =  ((TObjString*) (*tokens)[2])->GetString();
+  target =  ((TObjString*) (*tokens)[3])->GetString();
 
-  //To convert from degrees to radians
+  //cout << "The run " << datRun << " The Pass " << pass << " The Kin " << kinematic << " The Target " << target << endl;
+  gotRun = true;
+  //cout << gotRun << endl;
+  }
+  
+ else{
+  //Where are still searching but it's not a comment
+  //cout << "Cond 3" << endl;
+  continue;
+  }
+ }
+
+  if ((datafile.eof()) && !gotRun){
+   //Conditional that we checked the entire data file and did not find the runnum
+      cout << "Did not find run number: " << runnum_char << " in the data file! Quitting, figure it out!" << endl;
+       return; 
+       }
+          
+ //All of this was to have a modular input directory. So let's make it
+ string input_directory = "/work/halla/sbs/sbs-gmn";
+  const char *input_directory_char = input_directory.c_str();
+  const char *datRun_char = datRun.Data();
+  const char *pass_char = pass.Data();
+  const char *kin_char = kinematic.Data();
+  const char *tar_char = target.Data();
+ TString inputfile = Form("%s/%s/%s/%s/rootfiles/e1209019_fullreplay_%s_*.root",input_directory_char,pass_char,kin_char,tar_char,datRun_char);
+ //cout << "File Location " << inputfile << endl; 
+ //To convert from degrees to radians
   sbstheta *= TMath::Pi()/180.0;
   bbtheta *= TMath::Pi()/180.0;
 
 //Looks like this is assuming it is taking one root file
   TChain *C = new TChain("T");
 
-  C->Add(rootfilename); 
+  C->Add(inputfile);
+ // C->Add(rootfilename); 
 //need to understand what these variables mean
   TCut globalcut = "bb.ps.e>0.15&&abs(bb.tr.vz)<0.27&&sbs.hcal.nclus>0&&bb.tr.n==1";
   
@@ -72,8 +129,11 @@ void ElasticNucleon_Zeke( const char *rootfilename, double Ebeam=4.291, double b
 
   double W2min = 0.88-0.4;
   double W2max = 0.88+0.4;
-//maybe change this to reflect a unique identifier
-  TFile *fout = new TFile("elastic_temp.root","RECREATE");
+//Unique name structure for output fules
+ 
+ TString outfile = Form("elastic_output/elastic_Zeke_%s_%s_%s_%s.root",pass_char,kin_char,tar_char,datRun_char);
+ 
+  TFile *fout = new TFile(outfile,"RECREATE");
 
   TH2D *hdxdy_all = new TH2D("hdxdy_all","All events;#Deltay (m);#Deltax (m)",125,-2,2,125,-4,6);
   TH2D *hdxdy_Wcut = new TH2D("hdxdy_Wcut","|W^{2}-0.88|<0.4;Deltay (m);#Deltax (m)",125,-2,2,125,-4,6);

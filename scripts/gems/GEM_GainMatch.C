@@ -102,10 +102,10 @@ void chi2_FCN( int &npar, double *gin, double &f, double *par, int flag ){
 //Need to understand the input parameters. infilename is the file to be used to do the gain match. nmodules probably the told number of modules. fname_stripconfig will have to be modified to reflect the number  of strips of the config present for infilename. How are the rest of the variables determined?
 //void GEM_GainMatch(const int runnum, int nmodules,const int numseg,const char *fname_stripconfig, const char *detname="bb.gem", double chi2cut=100.0, double ADCcut = 1500.0, double target_ADC=4500.0){
 
-void GEM_GainMatch(const char *infilename, int nmodules, const char *fname_stripconfig, const char *detname="bb.gem", double chi2cut=10.0, double ADCcut = 1000.0, double target_ADC=4500.0){
+void GEM_GainMatch(int runnum, int nmodules, int numseg, const char *fname_stripconfig, const char *detname="bb.gem", double chi2cut=10.0, double ADCcut = 1000.0,double target_ADC = 4500.0){
   //convert runnum to a char so that way it can be used in names
-  //std::string runnum_temp = std::to_string(runnum);
-  //const char *runnum_char = runnum_temp.c_str();
+ std::string runnum_temp = std::to_string(runnum); 
+ const char *runnum_char = runnum_temp.c_str();
   //cout <<"My number " << runnum_char << endl;
 
   //setups up an input stream for the strip config file
@@ -172,7 +172,7 @@ void GEM_GainMatch(const char *infilename, int nmodules, const char *fname_strip
 
   TChain *C = new TChain("T");
 
-  C->Add( infilename );
+  //C->Add( infilename );
   //Do some file name management. This will of course need to change if you get files from not ewertz volatile
 
   string input_directory = "/volatile/halla/sbs/ewertz/GMn_replays/rootfiles/Standard/"; 
@@ -1064,17 +1064,11 @@ void GEM_GainMatch(const char *infilename, int nmodules, const char *fname_strip
   YGain_APV_all->SetMarkerStyle(kFullDotLarge);
   YGain_APV_all->SetLineColor(0);
 	
-<<<<<<< HEAD
-	gStyle->SetOptStat("neMRou");
-	TH1D *Gain_histo_all = new TH1D("hGainCoefficient_Histo","",200,0,4);
-	TH1D *XGain_histo_all = new TH1D("hUX_GainCoefficient_Histo","",200,0,4);	
-	TH1D *YGain_histo_all = new TH1D("hVY_GainCoefficient_Histo","",200,0,4);
-=======
   gStyle->SetOptStat("neMRou");
   TH1D *Gain_histo_all = new TH1D("hGainCoefficient_Histo","",200,0,2);
   TH1D *XGain_histo_all = new TH1D("hUX_GainCoefficient_Histo","",200,0,2);	
   TH1D *YGain_histo_all = new TH1D("hVY_GainCoefficient_Histo","",200,0,2);
->>>>>>> e029596e995012032deccacb32b691207bace9ae
+
 	
   int bestcount = 0;
   int mycountx = 0;
@@ -1107,19 +1101,12 @@ void GEM_GainMatch(const char *infilename, int nmodules, const char *fname_strip
     YGain_APV_mod->SetMarkerStyle(kFullDotLarge);
     YGain_APV_mod->SetLineColor(0);
 	
-<<<<<<< HEAD
-	TH1D *XGain_histo_mod = new TH1D(myNameX,"",200,0,4);
-        TH1D *YGain_histo_mod = new TH1D(myNameY,"",200,0,4);	
-		for(int x = 0; x < Xtemp.size(); x++){
-		double myXgain = Xtemp.at(x);
-		//Fill both histos properly
-=======
     TH1D *XGain_histo_mod = new TH1D(myNameX,"",200,0,2);
     TH1D *YGain_histo_mod = new TH1D(myNameY,"",200,0,2);	
     for(int x = 0; x < Xtemp.size(); x++){
       double myXgain = Xtemp.at(x);
       //Fill both histos properly
->>>>>>> e029596e995012032deccacb32b691207bace9ae
+
 	
       XGain_histo_all -> Fill(myXgain);
       XGain_APV_mod -> SetPoint(x,x+1,myXgain);
