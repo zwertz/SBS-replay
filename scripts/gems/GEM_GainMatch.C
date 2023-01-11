@@ -179,74 +179,74 @@ void GEM_GainMatch(int runnum, int nmodules, int numseg, const char *fname_strip
   const char *input_directory_char = input_directory.c_str();	
 //To implement multiple files or that is replay segments use a for loop
 	//for(int iseg=0; iseg<=numseg; iseg++){
-	for(int iseg=0; iseg<=135; iseg++){
+	for(int iseg=0; iseg<=102; iseg++){
 	//If the file name format changed this will of course need to change
 	std::string iseg_temp = std::to_string(iseg);
 	const char *iseg_char = iseg_temp.c_str();
 	//TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-	TString inputfile = Form("%se1209019_fullreplay_12912_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+	TString inputfile = Form("%se1209019_fullreplay_13378_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
 	//cout << "My name " << inputfile << endl;
 	C->Add(inputfile);
 	}
 
-
+	
  	//for(int iseg=0; iseg<=numseg; iseg++){
-        for(int iseg=0; iseg<=102; iseg++){
+        for(int iseg=0; iseg<=160; iseg++){
 	//If the file name format changed this will of course need to change
        std::string iseg_temp = std::to_string(iseg);
        const char *iseg_char = iseg_temp.c_str();
       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-       TString inputfile = Form("%se1209019_fullreplay_12915_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+       TString inputfile = Form("%se1209019_fullreplay_13379_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
 	 //cout << "My name " << inputfile << endl;
         C->Add(inputfile);
         }
         
-
-	for(int iseg=0; iseg<=136; iseg++){
+	
+	for(int iseg=0; iseg<=143; iseg++){
         //If the file name format changed this will of course need to change
        std::string iseg_temp = std::to_string(iseg);
        const char *iseg_char = iseg_temp.c_str();
        // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-        TString inputfile = Form("%se1209019_fullreplay_12916_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+        TString inputfile = Form("%se1209019_fullreplay_13381_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
         //cout << "My name " << inputfile << endl;
         C->Add(inputfile);
         }
         
-
-	for(int iseg=0; iseg<=136; iseg++){
+/*
+	for(int iseg=0; iseg<=13; iseg++){
         //If the file name format changed this will of course need to change
         std::string iseg_temp = std::to_string(iseg);
          const char *iseg_char = iseg_temp.c_str();
        // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-        TString inputfile = Form("%se1209019_fullreplay_12917_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+        TString inputfile = Form("%se1209019_fullreplay_13243_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
        //cout << "My name " << inputfile << endl;
         C->Add(inputfile);
          }
                                                              
 	
-	for(int iseg=0; iseg<=139; iseg++){
+	for(int iseg=0; iseg<=25; iseg++){
         //If the file name format changed this will of course need to change
        std::string iseg_temp = std::to_string(iseg);
         const char *iseg_char = iseg_temp.c_str();
        // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-        TString inputfile = Form("%se1209019_fullreplay_12918_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+        TString inputfile = Form("%se1209019_fullreplay_13244_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
        //cout << "My name " << inputfile << endl;
          C->Add(inputfile);
           }
                                                             
-	for(int iseg=0; iseg<=137; iseg++){
+	for(int iseg=0; iseg<=26; iseg++){
         std::string iseg_temp = std::to_string(iseg);
         const char *iseg_char = iseg_temp.c_str();
        // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-       TString inputfile = Form("%se1209019_fullreplay_12919_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+       TString inputfile = Form("%se1209019_fullreplay_13237_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
        C->Add(inputfile);
         }
 	
-	 for(int iseg=0; iseg<=148; iseg++){
+	 for(int iseg=0; iseg<=18; iseg++){
         std::string iseg_temp = std::to_string(iseg);
         const char *iseg_char = iseg_temp.c_str();
        // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-     	 TString inputfile = Form("%se1209019_fullreplay_12920_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
+     	 TString inputfile = Form("%se1209019_fullreplay_13239_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
        C->Add(inputfile);
         }
 
@@ -257,7 +257,7 @@ void GEM_GainMatch(int runnum, int nmodules, int numseg, const char *fname_strip
        // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);       
 	// TString inputfile = Form("%se1209019_fullreplay_12647_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
       // C->Add(inputfile);
-       // }
+       // }*/
 
 
 
@@ -389,9 +389,9 @@ void GEM_GainMatch(int runnum, int nmodules, int numseg, const char *fname_strip
   // cout << "done." << endl;
   //Setup the output file name 
   //changed output file name to include run number for file organization
-  //  TString outfilename = Form("GEM_GainMatch_output/GainRatios_%s_%s.root",detname,runnum_char);
+  TString outfilename = Form("GEM_GainMatch_output/GainRatios_%s_%s.root",detname,runnum_char);
   
-  TString outfilename("GainRatios_temp.root");
+  //TString outfilename("GainRatios_temp.root");
   
   C->SetBranchAddress( branchnames["hit.ADCmaxsampU"].Data(), &(hit_ADCmaxsampU[0]) );
   C->SetBranchAddress( branchnames["hit.ADCmaxsampV"].Data(), &(hit_ADCmaxsampV[0]) );
@@ -424,8 +424,8 @@ void GEM_GainMatch(int runnum, int nmodules, int numseg, const char *fname_strip
 
   ofstream outfile(outfilename.Data());
   //changed output file name to include run number for file organization
-  TString dbfilename("GEM_GainMatchResults_temp.dat");
-  //dbfilename.Form( "GEM_GainMatch_output/GEM_GainMatchResults_%s_%s.dat",detname,runnum_char );
+  TString dbfilename;
+  dbfilename.Form( "GEM_GainMatch_output/GEM_GainMatchResults_%s_%s.dat",detname,runnum_char );
   
   ofstream outfile_db(dbfilename.Data());
   //what is going on here with the nAPVmaxX/Y?

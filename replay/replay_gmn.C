@@ -308,7 +308,7 @@ void replay_gmn(UInt_t runnum=10491, Long_t nevents=-1, Long_t firstevent=0, con
   prefix = gSystem->Getenv("SBS_REPLAY");
   
   prefix += "/replay/";
-  //cout << "Hello World, if you get to this point you are reading the right script!" << endl;
+  cout << "Hello World, if you get to this point you are reading the right script!" << endl;
   int myrun = (int) runnum;	
   TString odef_filename;
   TString ftest(fname_prefix);

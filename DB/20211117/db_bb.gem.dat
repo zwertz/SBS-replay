@@ -48,8 +48,6 @@ bb.gem.m11.apvmap = 1 # UVA X/Y
 # basic flags controlling decoding:
 bb.gem.pedestalmode = 0
 bb.gem.commonmode_flag = 2 # 1 = Danning, 0 = sorting, 2 = histogramming
-bb.gem.commonmode_online_flag = 3 # 3 = Danning method during GMn, 4 = Danning \
-method during GEn
 # commenting this out as we can use the new default value of 640
 #bb.gem.chan_cm_flags = 512 # defines the "dummy" reference channel for storing the cm_enable and build_all_samples flags
 bb.gem.commonmode_nstriplo = 28
@@ -439,7 +437,7 @@ bb.gem.ADCasym_cut = 0.75
 bb.gem.deltat_cut = 21.0
 bb.gem.corrcoeff_cut = 0.5
 bb.gem.filterflag1D = -1
-bb.gem.filterflag2D = 0
+bb.gem.filterflag2D = 1
 
 bb.gem.peakprominence_minsigma = 5.0
 bb.gem.peakprominence_minfraction = 0.2
@@ -469,7 +467,6 @@ bb.gem.gridedgetolerancey = 0.003
 bb.gem.useconstraint = 1
 
 bb.gem.useopticsconstraint = 0
-bb.gem.useforwardopticsconstraint = 0
 bb.gem.xptar_min = -0.25
 bb.gem.xptar_max = 0.25
 bb.gem.yptar_min = -0.08
@@ -1878,6 +1875,139 @@ bb.gem.m9.threshold_sample = 114.689
 bb.gem.m9.threshold_stripsum = 344.068
 bb.gem.m9.threshold_clustersum = 688.137
 
+
+--------[ 2021-12-16 11:22:00 ] #Combined from runs 12939, 12940, 12946
+bb.gem.m0.vgain = 1  1  1  1  1.0987  0.984521  1.04222  1.20098  1.10524  1.02927  0.992768  1.09341  1.08564  1.04671  1.04793  1.00606  1.04888  0.993668  0.95239  0.950904  1.00985  1.00849  1.07794  0.990652  1.01383  1.13101  1  1  1  1
+bb.gem.m0.ugain = 1  1  1  1.00699  0.955662  0.959474  1.06196  0.982865  1.07108  0.992558  1.06037  1.03253  0.938361  0.981804  1  0.983642  0.919884  0.95574  0.916797  0.958329  0.960763  0.921222  0.922554  1  1  1  1  1  1  1
+bb.gem.m1.vgain = 1  1  1  1  1  1  1  1
+bb.gem.m1.ugain = 1  1  1  1  1  1  1  1  1  1
+bb.gem.m2.vgain = 1  1  1  1  1  1  1  1
+bb.gem.m2.ugain = 1  1  1  1  1  1  1  1  1  1
+bb.gem.m3.vgain = 1  1  1  1  1  1  1  1
+bb.gem.m3.ugain = 1  1  1  1  1  1  1  1  1  1
+bb.gem.m4.vgain = 1  1  1  1.09032  1.0663  1.12708  1.07781  1.09891  1.06301  1.06494  1.02239  1.05711  1.0631  1.08304  1.06483  1.0429  1.03568  1.04252  1.03062  0.952733  0.977361  1.0314  1.01655  1.02739  1.01414  0.960786  0.917059  1  1  1
+bb.gem.m4.ugain = 1  1  0.900277  0.944736  0.965866  1.02183  1.05006  0.98728  1.03416  0.973455  1.03181  1.09668  1.05775  0.990513  1  1.04459  1.01876  1.04129  0.953929  0.960333  0.99764  0.96435  0.966386  1.02635  1  1  1  1  1  1
+bb.gem.m5.vgain = 1  1  1.08402  1.13474  1.244  1.17956  1.23411  1.18766  1.15752  0.993395  1.05081  1.0557  1.04034  0.975827  1.03604  0.951392  0.945493  1.07329  0.969928  0.949074  0.942367  0.943218  0.982677  0.96617  0.873271  0.973955  0.910574  1  1  1
+bb.gem.m5.ugain = 1  0.8756  0.87311  1.15805  1.052  1.02502  0.972931  0.957913  0.979173  0.981402  0.954928  0.948034  1.00835  1.04145  1  0.94757  0.992817  1.02605  0.904697  0.995614  0.997823  1.00401  0.882181  0.906176  0.943948  1  1  1  1  1
+bb.gem.m6.vgain = 1  1  0.597068  0.573727  0.635575  0.592541  0.58508  0.557349  0.618209  0.663707  1.19277  1
+bb.gem.m6.ugain = 1  1  1  1.13647  1.54997  0.852666  0.91341  0.952719  0.963603  1
+bb.gem.m7.vgain = 1  0.79932  0.800955  0.817866  0.796496  0.704239  0.717477  0.665786  0.671847  0.714187  0.693698  1
+bb.gem.m7.ugain = 1.16484  1.13653  1.0557  1.10869  1.10138  1.05064  0.904233  1.06787  1  0.940649
+bb.gem.m8.vgain = 1  0.911725  0.833672  0.845324  0.937701  0.905442  0.926029  0.864314  0.91395  0.941199  0.979006  1
+bb.gem.m8.ugain = 0.809071  1  0.995254  0.901487  0.892386  0.863116  0.873174  0.821331  0.773844  0.722092
+bb.gem.m9.vgain = 1  1  1  1  0.665225  0.676863  0.725775  0.69261  0.69771  0.663893  0.726125  1
+bb.gem.m9.ugain = 1  1.06995  0.985675  0.962619  1  1  0.907828  0.974578  0.907357  1
+
+bb.gem.m0.modulegain = 0.994159
+bb.gem.m0.threshold_sample = 86.4921
+bb.gem.m0.threshold_stripsum = 259.476
+bb.gem.m0.threshold_clustersum = 518.953
+
+
+bb.gem.m1.modulegain = 1
+bb.gem.m2.modulegain = 1
+bb.gem.m3.modulegain = 1
+bb.gem.m4.modulegain = 0.971834
+bb.gem.m4.threshold_sample = 93.4117
+bb.gem.m4.threshold_stripsum = 280.235
+bb.gem.m4.threshold_clustersum = 560.47
+
+
+bb.gem.m5.modulegain = 1.00596
+bb.gem.m5.threshold_sample = 127.323
+bb.gem.m5.threshold_stripsum = 381.968
+bb.gem.m5.threshold_clustersum = 763.936
+
+
+bb.gem.m6.modulegain = 1.22313
+bb.gem.m6.threshold_sample = 155.355
+bb.gem.m6.threshold_stripsum = 466.066
+bb.gem.m6.threshold_clustersum = 932.131
+
+
+bb.gem.m7.modulegain = 1.14375
+bb.gem.m7.threshold_sample = 95.9259
+bb.gem.m7.threshold_stripsum = 287.778
+bb.gem.m7.threshold_clustersum = 575.555
+
+bb.gem.m8.modulegain = 1.11423
+bb.gem.m8.threshold_sample = 108.905
+bb.gem.m8.threshold_stripsum = 326.716
+bb.gem.m8.threshold_clustersum = 653.431
+
+
+bb.gem.m9.modulegain = 1.17732
+bb.gem.m9.threshold_sample = 104.074
+bb.gem.m9.threshold_stripsum = 312.223
+bb.gem.m9.threshold_clustersum = 624.447
+
+--------[ 2021-12-16 17:23:00 ] #Combined from runs 12957,12959,12961,12962,12965,12968,12969
+
+bb.gem.m0.vgain = 1  1  1  1  1.14854  1.05802  1.05593  1.24732  1.15302  1.064  1.03334  1.1443  1.11187  1.07783  1.07264  1.03146  1.07213  1.012  0.965118  0.968051  1.02178  0.984291  1.06851  0.977021  0.998925  0.993878  1  1  1  1
+bb.gem.m0.ugain = 1  1  0.990658  1.05414  1.05298  0.963279  1.09692  1.03375  1.11692  1.02429  1.09531  1.07807  0.959869  1  1.02387  1.00857  0.935738  0.974829  0.928401  0.955977  0.930993  0.897092  0.8897  0.996543  1  1  1  1  1  1
+bb.gem.m1.vgain = 1  1  1  1  1  1  1  1
+bb.gem.m1.ugain = 1  1  1  1  1  1  1  1  1  1
+bb.gem.m2.vgain = 1  1  1  1  1  1  1  1
+bb.gem.m2.ugain = 1  1  1  1  1  1  1  1  1  1
+bb.gem.m3.vgain = 1  1  1  1  1  1  1  1
+bb.gem.m3.ugain = 1  1  1  1  1  1  1  1  1  1
+bb.gem.m4.vgain = 1  1  1  1.12389  1.12202  1.06742  1.11628  1.12753  1.07366  1.07734  1.0458  1.06795  1.0755  1.08863  1.07672  1.04677  1.03919  1.05427  1.03835  0.962274  0.993294  1.02373  0.997426  1.00358  0.980152  0.982262  0.921775  1  1  1
+bb.gem.m4.ugain = 1  0.720771  0.86769  0.992927  1.00414  1.05104  1.05121  1.00713  1.06074  0.998111  1.05698  1.09781  1.06663  1  1.00711  1.05066  1.02883  1.04324  0.967341  0.988596  0.992272  0.961437  0.935053  0.971541  1  1  1  1  1  1
+bb.gem.m5.vgain = 1  1  1.17736  1.02638  1.12352  0.951255  1.24988  1.18044  1.12111  0.969474  1.031  1.01209  1.0013  0.933035  0.984489  0.909902  0.905969  1.02248  0.933909  0.905414  0.908504  0.90808  0.953672  0.954907  0.851178  0.902215  0.95761  1  1  1
+bb.gem.m5.ugain = 1  0.776845  0.785733  1.08697  1.04987  0.971825  0.962443  0.942644  0.949237  0.944878  0.916594  0.910331  0.963512  1  0.967307  0.9079  0.954027  1.0233  0.871714  0.953395  0.971308  0.965026  0.85129  0.889225  0.86103  1  1  1  1  1
+bb.gem.m6.vgain = 1  1  0.581742  0.575578  0.620912  0.577959  0.571525  0.553254  0.626374  0.588969  0.618371  1
+bb.gem.m6.ugain = 1  1  1  0.842857  0.788863  0.846029  0.894508  0.938816  0.929373  1
+bb.gem.m7.vgain = 1  0.790384  0.802935  0.801748  0.791411  0.699779  0.715703  0.666247  0.67204  0.713693  0.698588  1
+bb.gem.m7.ugain = 1.11663  1.11712  1.08429  1.1096  1.11204  1.06585  0.911272  1.07624  1  0.946649
+bb.gem.m8.vgain = 1  0.879864  0.867559  0.858689  0.944007  0.896925  0.921934  0.863842  0.917486  0.954316  0.979794  1
+bb.gem.m8.ugain = 0.804354  1  1.00129  0.90515  0.886508  0.867376  0.864928  0.808789  0.781993  0.736611
+bb.gem.m9.vgain = 1  1  0.699026  0.689971  0.650756  0.677968  0.705251  0.697266  0.667843  0.649536  0.722896  1
+bb.gem.m9.ugain = 1  1.04485  0.980427  0.934371  0.902945  0.93256  0.949195  0.9287  0.930883  1
+
+bb.gem.m0.modulegain = 0.971587
+bb.gem.m0.threshold_sample = 86.6529
+bb.gem.m0.threshold_stripsum = 259.959
+bb.gem.m0.threshold_clustersum = 519.917
+
+
+bb.gem.m1.modulegain = 1
+bb.gem.m2.modulegain = 1
+bb.gem.m3.modulegain = 1
+bb.gem.m4.modulegain = 0.963208
+bb.gem.m4.threshold_sample = 94.3334
+bb.gem.m4.threshold_stripsum = 283
+bb.gem.m4.threshold_clustersum = 566
+
+
+bb.gem.m5.modulegain = 1.04477
+bb.gem.m5.threshold_sample = 124.751
+bb.gem.m5.threshold_stripsum = 374.252
+bb.gem.m5.threshold_clustersum = 748.505
+
+
+bb.gem.m6.modulegain = 1.31875
+bb.gem.m6.threshold_sample = 157.906
+bb.gem.m6.threshold_stripsum = 473.717
+bb.gem.m6.threshold_clustersum = 947.435
+
+
+bb.gem.m7.modulegain = 1.14219
+bb.gem.m7.threshold_sample = 94.112
+bb.gem.m7.threshold_stripsum = 282.336
+bb.gem.m7.threshold_clustersum = 564.672
+
+
+bb.gem.m8.modulegain = 1.11308
+bb.gem.m8.threshold_sample = 103.431
+bb.gem.m8.threshold_stripsum = 310.292
+bb.gem.m8.threshold_clustersum = 620.585
+
+
+bb.gem.m9.modulegain = 1.20594
+bb.gem.m9.threshold_sample = 115.978
+bb.gem.m9.threshold_stripsum = 347.934
+bb.gem.m9.threshold_clustersum = 695.869
+
 ######################### END TIME-DEPENDENT GAIN-MATCH PARAMETERS $$$$$$$$$$$$$$$$$$$$$$$$
 
 ###################### BEGIN TIME-DEPENDENT CLUSTERING PARAMETERS #############
@@ -2301,8 +2431,6 @@ bb.gem.m11.maxstrip_tcut =     23.8
 ----------[ 2021-11-17 11:00:00 ] # approximate time of replacement of layer J2
 
 ##################### START WITH PARAMETERS THAT AREN'T EXPECTED TO CHANGE OFTEN #####################
-
-
 
 bb.gem.modules = m0   m1 m2 m3    m4    m5     m6 m7 m8 m9
 
@@ -2905,18 +3033,18 @@ bb.gem.ADCasym_cut = 0.75
 bb.gem.deltat_cut = 30.0
 bb.gem.corrcoeff_cut = 0.5
 bb.gem.filterflag1D = -1
-bb.gem.filterflag2D = 0
+bb.gem.filterflag2D = 1
 
-bb.gem.peakprominence_minsigma = 3.0 
-bb.gem.peakprominence_minfraction = 0.15
+bb.gem.peakprominence_minsigma = 5.0 
+bb.gem.peakprominence_minfraction = 0.2
 
 # limit cluster size growth to +/- 4 strips for cluster charge calculation
 bb.gem.maxnu_charge = 4
 bb.gem.maxnv_charge = 4 
 
 # limit cluster size to +/-3 strips from maximum for cluster position calculation
-bb.gem.maxnu_pos = 2
-bb.gem.maxnv_pos = 2
+bb.gem.maxnu_pos = 3
+bb.gem.maxnv_pos = 3
 
 bb.gem.sigmahitshape = 0.0004
 bb.gem.zerosuppress = 1
@@ -3026,7 +3154,6 @@ bb.gem.trackchi2cut = 40.0
 bb.gem.useconstraint = 0
 bb.gem.useopticsconstraint = 0
 bb.gem.useslopeconstraint = 0
-bb.gem.useforwardopticsconstraint = 0
 
 bb.gem.do_efficiencies = 1
 bb.gem.dump_geometry_info = 0 # turn this off if we are not using this run to do a new alignment!
@@ -3213,7 +3340,7 @@ bb.gem.useopticsconstraint = 0
 bb.gem.useslopeconstraint = 1
 bb.gem.useopticsconstraint = 1
 
-------[ 2021-11-25 09:29:00 ] # attempt to analyze low-current LH2 run without any constraints:
+------[ 2021-11-25 09:29:00 ] # attempt to analyze low-current LH2 run without constraints:
 bb.gem.useslopeconstraint = 0
 bb.gem.useopticsconstraint = 0
 
@@ -3228,6 +3355,9 @@ bb.gem.useopticsconstraint = 0
 ------[ 2021-11-25 12:15:00 ] #starting "true production" here
 bb.gem.useslopeconstraint = 1
 bb.gem.useopticsconstraint = 1
+
+
+
 
 
 ###################### TIME-DEPENDENT PEDESTAL FILES ##########################
@@ -3309,4 +3439,8 @@ bb.gem.pedfile = gemped/daq_ped_bb_gem_run13089.dat
 bb.gem.cmfile = gemped/db_cmr_bb_gem_run13089.dat
 
 #################### END OF TIME-DEPENDENT PEDESTAL FILES #########################
+
+
+
+=======
 # END of "V2" database
