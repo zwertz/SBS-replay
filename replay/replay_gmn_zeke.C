@@ -34,7 +34,7 @@
 #include "SBSScalerEvtHandler.h"
 //#endif
 
-void replay_gmn(UInt_t runnum=10491, Long_t nevents=-1, Long_t firstevent=0, const char *fname_prefix="e1209019", UInt_t firstsegment=0, UInt_t maxsegments=1, Int_t pedestalmode=0, Int_t cmplots=1)
+void replay_gmn(UInt_t runnum=10491, Long_t nevents=-1, Long_t firstevent=0, const char *fname_prefix="e1209019", UInt_t firstsegment=0, UInt_t maxsegments=1, Int_t pedestalmode=0, Int_t cmplots=0)
 {
 
   THaAnalyzer* analyzer = new THaAnalyzer;
@@ -330,6 +330,7 @@ void replay_gmn(UInt_t runnum=10491, Long_t nevents=-1, Long_t firstevent=0, con
     //Fail safe if for some reason a runnum is inputed that does not fall in these ranges. Replay will probably be wrong. But it shouldn't crash the scrip. Will give you most modules.
     odef_filename = "replay_gmn_1.odef";	
   }
+
 
 
   //odef_filename.Prepend(prefix);
