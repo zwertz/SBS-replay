@@ -34,9 +34,13 @@ th2d hAmp_vs_elem_ID 'Amplitude vs Module (saturation check): HCAL; channel; mV'
 th2d hAmp_vs_int 'ADC amp vs int : HCAL; pC; mV' sbs.hcal.a_p[I] sbs.hcal.a_amp_p[I] 100 0 10 200 0 40 sbs.hcal.a_time[I]>0
 th2d hADCamp_vs_elem_hcal 'ADC amplitude vs module ZOOM : HCAL; channel; mV' sbs.hcal.adcelemID[I] sbs.hcal.a_amp_p[I] 288 0.5 288.5 1000 0 1000 sbs.hcal.a_time[I]>0 
 
+th1d hATIME_HCAL 'AdcTime over all channels : HCAL; ns' sbs.hcal.a_time 200 1 201 
+th1d hATIME_HCAL_Clus 'AdcTime HCAL Clus; ns' sbs.hcal.clus_blk.atime 200 1 201 
+
 #Page 3: TDC vs Module
-th1d hTDC_HCAL 'TDC over all channels : HCAL; ns' sbs.hcal.tdc 250 -150 100 sbs.hcal.e>0.01
-th2d hTDC_vs_clus_ID 'TDC vs Module : HCAL; channel; ns' sbs.hcal.tdcelemID[I] sbs.hcal.tdc[I] 288 0.5 288.5 250 -150 100 sbs.hcal.e>0.01
+th1d hTDC_HCAL_noCut 'TDC over all channels : HCAL; ns' sbs.hcal.tdc 400 -200 200 
+th1d hTDC_HCAL 'TDC over all channels : HCAL; ns' sbs.hcal.tdc 300 -150 150 sbs.hcal.e>0.01
+th2d hTDC_vs_clus_ID 'TDC vs Module : HCAL; channel; ns' sbs.hcal.tdcelemID[I] sbs.hcal.tdc[I] 288 0.5 288.5 300 -150 150 sbs.hcal.e>0.01
 
 #Page 3: HCal Trigger ADC Time
 #(macro) HCal Trigger ADC Time
@@ -50,11 +54,11 @@ th2d hADCamp_hcalT_r 'HCal Trigger Sum r-{1-10} ADC Amplitude; mV' sbs.trig.adce
 #Page 7: Cluster Plots
 th1d hNClus_vs_elem_hcal 'Number of clusters per event : HCAL; N' sbs.hcal.nclus 20 0 20  #Multiplicity
 th1d hNBlk_per_cluster 'Number of blocks per cluster : HCAL; N' sbs.hcal.nblk 15 0 15 
-th2d hE_vs_mult_clus 'Primary Cluster E vs Multiplicity; nclus; MeV' sbs.hcal.e sbs.hcal.nclus 60 0 1.5 12 0 12
+th2d hE_vs_mult_clus 'Primary Cluster E vs Cluster Size; GeV; Number of blocks' sbs.hcal.e sbs.hcal.nblk 60 0 1.5 12 0 12
 th2d hClusE_vs_elem_hcal 'Primary Cluster Energy vs element ID : HCAL; channel; GeV' sbs.hcal.clus_blk.id[I] sbs.hcal.clus_blk.e[I] 288 0.5 288.5 100 0 0.5 sbs.hcal.clus_blk.atime[I]>0
 
 #Page 8: Cluster Heatmap
-th2d hClus_pos_hcal 'Position of best cluster : HCal; Y(m); X(m)' sbs.hcal.colblk sbs.hcal.rowblk 12 0 12 24 0 24 sbs.hcal.nclus>0
+th2d hClus_pos_hcal 'Position of best cluster : HCal; Column; Row' sbs.hcal.colblk sbs.hcal.rowblk 12 0 12 24 0 24 sbs.hcal.nclus>0
 
 #Page 9: HCal ADC Time
 #(macro) ADC Time No LED
