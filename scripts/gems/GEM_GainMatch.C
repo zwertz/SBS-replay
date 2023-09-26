@@ -108,7 +108,6 @@ void chi2_FCN( int &npar, double *gin, double &f, double *par, int flag ){
 }
 
 
-
 //void GEM_GainMatch(const char *infilename, int nmodules, const char *fname_stripconfig, const char *detname="bb.gem", double chi2cut=10.0, double ADCcut = 1000.0, double target_ADC=4500.0){
 void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainmatch_temp.root" ){
 
@@ -137,8 +136,8 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   TTreeFormula *GlobalCut = new TTreeFormula( "GlobalCut", globalcut, C );
   
   //convert runnum to a char so that way it can be used in names
- std::string runnum_temp = std::to_string(runnum); 
- const char *runnum_char = runnum_temp.c_str();
+  //std::string runnum_temp = std::to_string(runnum);
+  //const char *runnum_char = runnum_temp.c_str();
   //cout <<"My number " << runnum_char << endl;
 
   //Read strip configuration:
@@ -258,97 +257,10 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   // TChain *C = new TChain("T");
 
   // C->Add( infilename );
-
   //Do some file name management. This will of course need to change if you get files from not ewertz volatile
 
-
-  string input_directory = "/volatile/halla/sbs/ewertz/GMn_replays/rootfiles/Standard/"; 
-  const char *input_directory_char = input_directory.c_str();	
-//To implement multiple files or that is replay segments use a for loop
-	//for(int iseg=0; iseg<=numseg; iseg++){
-	for(int iseg=0; iseg<=102; iseg++){
-	//If the file name format changed this will of course need to change
-	std::string iseg_temp = std::to_string(iseg);
-	const char *iseg_char = iseg_temp.c_str();
-	//TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-	TString inputfile = Form("%se1209019_fullreplay_13378_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
-	//cout << "My name " << inputfile << endl;
-	C->Add(inputfile);
-	}
-
-	
- 	//for(int iseg=0; iseg<=numseg; iseg++){
-        for(int iseg=0; iseg<=160; iseg++){
-	//If the file name format changed this will of course need to change
-       std::string iseg_temp = std::to_string(iseg);
-       const char *iseg_char = iseg_temp.c_str();
-      // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-       TString inputfile = Form("%se1209019_fullreplay_13379_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
-	 //cout << "My name " << inputfile << endl;
-        C->Add(inputfile);
-        }
-        
-	
-	for(int iseg=0; iseg<=143; iseg++){
-        //If the file name format changed this will of course need to change
-       std::string iseg_temp = std::to_string(iseg);
-       const char *iseg_char = iseg_temp.c_str();
-       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-        TString inputfile = Form("%se1209019_fullreplay_13381_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
-        //cout << "My name " << inputfile << endl;
-        C->Add(inputfile);
-        }
-        
-/*
-	for(int iseg=0; iseg<=13; iseg++){
-        //If the file name format changed this will of course need to change
-        std::string iseg_temp = std::to_string(iseg);
-         const char *iseg_char = iseg_temp.c_str();
-       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-        TString inputfile = Form("%se1209019_fullreplay_13243_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
-       //cout << "My name " << inputfile << endl;
-        C->Add(inputfile);
-         }
-                                                             
-	
-	for(int iseg=0; iseg<=25; iseg++){
-        //If the file name format changed this will of course need to change
-       std::string iseg_temp = std::to_string(iseg);
-        const char *iseg_char = iseg_temp.c_str();
-       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-        TString inputfile = Form("%se1209019_fullreplay_13244_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
-       //cout << "My name " << inputfile << endl;
-         C->Add(inputfile);
-          }
-                                                            
-	for(int iseg=0; iseg<=26; iseg++){
-        std::string iseg_temp = std::to_string(iseg);
-        const char *iseg_char = iseg_temp.c_str();
-       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-       TString inputfile = Form("%se1209019_fullreplay_13237_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
-       C->Add(inputfile);
-        }
-	
-	 for(int iseg=0; iseg<=18; iseg++){
-        std::string iseg_temp = std::to_string(iseg);
-        const char *iseg_char = iseg_temp.c_str();
-       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);
-     	 TString inputfile = Form("%se1209019_fullreplay_13239_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
-       C->Add(inputfile);
-        }
-
-	
-	 //for(int iseg=0; iseg<=62; iseg++){
-       // std::string iseg_temp = std::to_string(iseg);
-       // const char *iseg_char = iseg_temp.c_str();
-       // TString inputfile = Form("%se1209019_fullreplay_%s_stream0_seg%s_%s.root",input_directory_char,runnum_char,iseg_char,iseg_char);       
-	// TString inputfile = Form("%se1209019_fullreplay_12647_stream0_seg%s_%s.root",input_directory_char,iseg_char,iseg_char);
-      // C->Add(inputfile);
-       // }*/
-
-
-
-  C->Print();
+ 
+  //C->Print();
   //some variables that are useful, for some reason
   TString branchname;
   double ngoodhits;
@@ -443,7 +355,11 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   //Populating data in the TChain branchs?
   // cout << "Setting branch addresses: ";
 
+  C->SetBranchStatus("bb.tr.n",1);
   C->SetBranchStatus("bb.tr.vz",1);
+  C->SetBranchStatus("bb.gem.track.chi2ndf",1);
+  C->SetBranchStatus("bb.gem.track.nhits",1);
+  C->SetBranchStatus("bb.etot_over_p",1);
   C->SetBranchStatus("bb.tr.p",1);
   C->SetBranchStatus("bb.ps.e",1);
   C->SetBranchStatus("bb.sh.e",1);
@@ -485,7 +401,6 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   //  TString outfilename = Form("GEM_GainMatch_output/GainRatios_%s_%s.root",detname.Data(),runnum_char);
   
   TString outfilename(outfname);
-
   
   C->SetBranchAddress( branchnames["hit.ADCmaxsampU"].Data(), &(hit_ADCmaxsampU[0]) );
   C->SetBranchAddress( branchnames["hit.ADCmaxsampV"].Data(), &(hit_ADCmaxsampV[0]) );
@@ -527,7 +442,6 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   
   TString dbfilename(outfilename.Data());
   //dbfilename.Form( "GEM_GainMatch_output/GEM_GainMatchResults_%s_%s.dat",detname.Data(),runnum_char );
-
   
   ofstream outfile_db(dbfilename.Data());
   //what is going on here with the nAPVmaxX/Y?
@@ -572,11 +486,13 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   
   long nevent=0;
   //make some 1D and 2D histograms
-  TH2D *hADCasym_module = new TH2D("hADCasym_module","",nmodules,-0.5,nmodules-0.5,500,-1.01,1.01);
+  TH2D *hADCasym_module = new TH2D("hADCasym_module","ADC Asymm vs Module Before Gain;Module;ADC Asymm",nmodules,-0.5,nmodules-0.5,500,-1.01,1.01);
   TH2D *hNstripX_module = new TH2D("hNstripX_module","",nmodules,-0.5,nmodules-0.5,12,0.5,12.5);
   TH2D *hNstripY_module = new TH2D("hNstripY_module","",nmodules,-0.5,nmodules-0.5,12,0.5,12.5);
+  TH2D *hADCasym_APV = new TH2D("hADCasym_APV","ADC Asymm vs APV Before Gain;APV;ADC Asymm",nAPVmaxX*nAPVmaxY*nmodules,-0.5,nAPVmaxX*nAPVmaxY*nmodules-0.5,500,-1.01,1.01);
+  TH2D *hADCasym_APV_corrected = new TH2D("hADCasym_APV_corrected","ADC Asymm vs APV After Gain;APV;ADC Asymm",nAPVmaxX*nAPVmaxY*nmodules,-0.5,nAPVmaxX*nAPVmaxY*nmodules-0.5,500,-1.01,1.01);
 
-  TH2D *hADCavg_module = new TH2D("hADCavg_module","",nmodules,-0.5,nmodules-0.5,1500,0,30000);
+  TH2D *hADCavg_module = new TH2D("hADCavg_module","ADC Average vs Module Before Gain;Module;0.5*(Clust U ADC + Clust V ADC)",nmodules,-0.5,nmodules-0.5,1500,0,30000);
   TH1D *hADCavg_allhits = new TH1D("hADCavg_allhits","",1500,0,30000);
 
   TH2D *hStripADCsumU_module = new TH2D("hStripADCsumU_module","",nmodules,-0.5,nmodules-0.5,1500,0,15000);
@@ -587,7 +503,6 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   //int nAPVmax = 
 
   int treenum=0, currenttreenum=0;
-  
   //cout << "starting event loop:" << endl;
   //Need to understand what this loop is for and what every conditional is for
   while( C->GetEntry( nevent++ ) ){
@@ -603,7 +518,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
     if( ngoodhits > MAXNHITS ) continue;
     if( ntracks > MAXNHITS ) continue;
     
-    if( nevent % 1000 == 0 ) cout << "event " << nevent << endl;
+    if( nevent % 100000 == 0 ) cout << "event " << nevent << endl;
     //loop over hits:
     int itrack = int(besttrack);
     //cout << "itrack = " << itrack << endl;
@@ -611,10 +526,8 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
     int NTRACKS = int(ntracks);
 
     //cout << "ntracks = " << NTRACKS << endl;
-    
     if(passedcut && NTRACKS >= 1 && itrack == 0){
-
-
+      
       int nhits = int(ngoodhits);
       //	cout << "nhits = " << nhits << endl;
       
@@ -672,9 +585,9 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 	      hit_nstripu[ihit] >= 2 && hit_nstripv[ihit] >= 2 &&
 	      xAPVmax*128 < nstripx_mod[module] && yAPVmax*128<nstripy_mod[module] ){
 
-	    // cout << "filling histograms " << endl;
+	    //cout << "filling histograms " << endl;
 
-	    // cout << "apvxy hist index = " << yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*module << endl;
+	    //cout << "apvxy hist index = " << yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*module << endl;
 	    // cout << "apvx hist index = " << xAPVmax + nAPVmaxX*module << endl;
 	    // cout << "apvy hist index = " << yAPVmax + nAPVmaxY*module << endl;
 	    //More 1D histograms    
@@ -682,7 +595,11 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 
 	    ( (TH1D*) (*hADCasym_vs_APVX)[xAPVmax + nAPVmaxX*module] )->Fill( hit_ADCasym[ihit] );
 	    ( (TH1D*) (*hADCasym_vs_APVY)[yAPVmax + nAPVmaxY*module] )->Fill( hit_ADCasym[ihit] );
+
+	    hADCasym_APV->Fill(yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*module,hit_ADCasym[ihit]);
+
 	    //cout << "done histogram fill" << endl;
+
 	    
 	  }
 	}
@@ -693,7 +610,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   //cout << "Event " << nevent << " done" << endl;
 
   //Fitting landau's to something
-  TFitResultPtr fitadcall = hADCavg_allhits->Fit("landau","S","",2000.0,25000.);
+  TFitResultPtr fitadcall = hADCavg_allhits->Fit("landau","qS","",1800.0,25000.);
 
   double MPV_all = ( (TF1*) hADCavg_allhits->GetListOfFunctions()->FindObject("landau") )->GetParameter("MPV");
 
@@ -741,7 +658,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
       
       
       
-      htemp->Fit("gaus","S","",htemp->GetBinCenter(binlo),htemp->GetBinCenter(binhi) );
+      htemp->Fit("gaus","qS","",htemp->GetBinCenter(binlo),htemp->GetBinCenter(binhi) );
       
       TF1 *fitfunc = (TF1*) htemp->GetListOfFunctions()->FindObject("gaus");
       
@@ -774,7 +691,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 
     if( htemp->GetEntries() >= 100. ){
 
-      TFitResultPtr ADCfit_module = htemp->Fit("landau","S","",ADCcut,25000.0);
+      TFitResultPtr ADCfit_module = htemp->Fit("landau","qS","",ADCcut,25000.0);
       double MPV_mod = ( (TF1*) (htemp->GetListOfFunctions()->FindObject("landau") ) )->GetParameter("MPV");
 
       // cout << "module " << i << " MPV = " << MPV_mod << endl;
@@ -1178,11 +1095,10 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   YGain_APV_all->SetMarkerStyle(kFullDotLarge);
   YGain_APV_all->SetLineColor(0);
 	
-  gStyle->SetOptStat("neMRou");
+  //gStyle->SetOptStat("neMRou");
   TH1D *Gain_histo_all = new TH1D("hGainCoefficient_Histo","",200,0,2);
   TH1D *XGain_histo_all = new TH1D("hUX_GainCoefficient_Histo","",200,0,2);	
   TH1D *YGain_histo_all = new TH1D("hVY_GainCoefficient_Histo","",200,0,2);
-
 	
   int bestcount = 0;
   int mycountx = 0;
@@ -1220,7 +1136,6 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
     for(int x = 0; x < Xtemp.size(); x++){
       double myXgain = Xtemp.at(x);
       //Fill both histos properly
-
 	
       XGain_histo_all -> Fill(myXgain);
       XGain_APV_mod -> SetPoint(x,x+1,myXgain);
@@ -1271,8 +1186,8 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 
   TH1D *hADCavg_allhits_corrected = new TH1D("hADCavg_allhits_corrected","",1500,0,30000);
   TH1D *hADCasym_allhits_corrected = new TH1D("hADCasym_allhits_corrected","",250,-1.01,1.01);
-  TH2D *hADCavg_module_corrected = new TH2D("hADCavg_module_corrected","",nmodules,-0.5,nmodules-0.5,1500,0,30000);
-  TH2D *hADCasym_module_corrected = new TH2D("hADCasym_module_corrected",";module;Corrected ADC asym",nmodules,-0.5,nmodules-0.5,250,-1.01,1.01);
+  TH2D *hADCavg_module_corrected = new TH2D("hADCavg_module_corrected","ADC Average vs Module After Gain;Module;0.5*(Clust U ADC + Clust V ADC)",nmodules,-0.5,nmodules-0.5,1500,0,30000);
+  TH2D *hADCasym_module_corrected = new TH2D("hADCasym_module_corrected","ADC Asymm vs Module After Gain;Module;ADC Asymm",nmodules,-0.5,nmodules-0.5,250,-1.01,1.01);
 
   TH2D *hADCasym_vs_ADCavg_allhits_corrected = new TH2D("hADCasym_vs_ADCavg_allhits_corrected",";ADC average; ADC asym",1000,0,30000,250,-1.01,1.01);
   
@@ -1327,7 +1242,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
     if( ngoodhits > MAXNHITS ) continue;
     if( ntracks > MAXNHITS ) continue;
     
-    if( nevent % 1000 == 0 ) cout << "event " << nevent << endl;
+    if( nevent % 100000 == 0 ) cout << "event " << nevent << endl;
     //loop over hits:
     int itrack = int(besttrack);
     //cout << "itrack = " << itrack << endl;
@@ -1402,7 +1317,8 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 	      
 	    hADCavg_allhits_corrected->Fill( 0.5*(hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
 	    hADCavg_module_corrected->Fill( hit_module[ihit], 0.5*(hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
-
+	    hADCasym_APV_corrected->Fill(yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*hit_module[ihit],(hit_ADCU[ihit]*Xgaintemp-hit_ADCV[ihit]*Ygaintemp) / (hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp));
+	    
 	    hADCasym_allhits_corrected->Fill( (hit_ADCU[ihit]*Xgaintemp-hit_ADCV[ihit]*Ygaintemp) /
 					      (hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
 
@@ -1413,6 +1329,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 	    hADCasym_vs_ADCavg_allhits_corrected->Fill( 0.5*(hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp),
 							(hit_ADCU[ihit]*Xgaintemp-hit_ADCV[ihit]*Ygaintemp) /
 							(hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
+
 	    // hADCasym_module->Fill( hit_module[ihit], hit_ADCasym[ihit] );
 	    // hNstripX_module->Fill( hit_module[ihit], hit_nstripu[ihit] );
 	    // hNstripY_module->Fill( hit_module[ihit], hit_nstripv[ihit] );
@@ -1464,7 +1381,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 
   outfile_db << endl << "# Module average gains relative to target ADC peak position of " << target_ADC << endl;
 
-  TFitResultPtr ADCfit_all = hADCavg_allhits_corrected->Fit("landau","S","",2000,25000.0);
+  TFitResultPtr ADCfit_all = hADCavg_allhits_corrected->Fit("landau","qS","",1800,25000.0);
 
   MPV_all = ( (TF1*) hADCavg_allhits_corrected->GetListOfFunctions()->FindObject("landau") )->GetParameter("MPV");
 
@@ -1508,7 +1425,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
     htemp = hADCavg_module_corrected->ProjectionY( hname.Data(), i+1, i+1 );
 
     if( htemp->GetEntries() >= 5000 ){
-      TFitResultPtr ADCfit_module = htemp->Fit("landau","S","",2000,25000.0);
+      TFitResultPtr ADCfit_module = htemp->Fit("landau","qS","",ADCcut,25000.0);
       
       double MPV_mod = ( (TF1*) (htemp->GetListOfFunctions()->FindObject("landau") ) )->GetParameter("MPV");
       
@@ -1527,26 +1444,30 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
       thresh_strip_all->SetPoint(i,i+1,thresh_strip_mod);
       thresh_cluster_all->SetPoint(i,i+1,thresh_cluster_mod);
 
-      cout << "# Module " << i << " average gain relative to target ADC of " << target_ADC << " = " << Gmod << endl;
+      //cout << "# Module " << i << " average gain relative to target ADC of " << target_ADC << " = " << Gmod << endl;
       TString dbentry;
       dbentry.Form("%s.m%d.modulegain = %g",detname.Data(),i,Gmod);
       outfile_db << dbentry << endl;
-      cout << dbentry << endl;
-
+      //cout << dbentry << endl;
+      /*  Thresholds are no longer set by this script
       dbentry.Form( "%s.m%d.threshold_sample = %g", detname.Data(), i, thresh_sample_mod );
-      outfile_db << dbentry << endl;
-      cout << dbentry << endl;
+
+      // outfile_db << dbentry << endl;
+      // cout << dbentry << endl;
 
       dbentry.Form( "%s.m%d.threshold_stripsum = %g", detname.Data(), i, thresh_strip_mod );
-      outfile_db << dbentry << endl;
-      cout << dbentry << endl;
+      // outfile_db << dbentry << endl;
+      // cout << dbentry << endl;
 
       dbentry.Form( "%s.m%d.threshold_clustersum = %g", detname.Data(), i, thresh_cluster_mod );
-      outfile_db << dbentry << endl;
-      cout << dbentry << endl;
+      // // // // outfile_db << dbentry << endl;
+      // // // // cout << dbentry << endl;
 
-      outfile_db << endl << endl;
+      // outfile_db << endl << endl;
+
       
+      outfile_db << endl << endl;
+      */
     } else {
       thresh_sample_all->SetPoint(i,i+1,thresh_sample);
       thresh_strip_all->SetPoint(i,i+1,thresh_strip);
@@ -1555,21 +1476,22 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
       TString dbentry;
       dbentry.Form("%s.m%d.modulegain = %g",detname.Data(),i,1.0);
       outfile_db << dbentry << endl;
-      cout << dbentry << endl;
-
+      //cout << dbentry << endl;
+      /*  Thresholds are no longer set by this script
       dbentry.Form( "%s.m%d.threshold_sample = %g", detname.Data(), i, thresh_sample );
-      outfile_db << dbentry << endl;
-      cout << dbentry << endl;
+
+      // outfile_db << dbentry << endl;
+      // cout << dbentry << endl;
 
       dbentry.Form( "%s.m%d.threshold_stripsum = %g", detname.Data(), i, thresh_strip );
-      outfile_db << dbentry << endl;
-      cout << dbentry << endl;
+      // outfile_db << dbentry << endl;
+      // cout << dbentry << endl;
 
       dbentry.Form( "%s.m%d.threshold_clustersum = %g", detname.Data(), i, thresh_cluster );
-      outfile_db << dbentry << endl;
-      cout << dbentry << endl;
+      // outfile_db << dbentry << endl;
+      // cout << dbentry << endl;
 
-      outfile_db << endl << endl;
+      // outfile_db << endl << endl; */
       
     }
   }
@@ -1583,4 +1505,29 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   outfile_db << endl;
   fout->Write();
 
+  TString outfilepdf(outfname);
+  outfilepdf.ReplaceAll(".root",".pdf");
+
+
+  ////// Here we create all the plots for the output PDF ///////
+  TCanvas *c2 = new TCanvas("c2","",1200,1000);
+  c2->Divide(2,2);
+
+  c2->cd(1);
+  hADCasym_module->Draw("colz");
+
+  c2->cd(2);
+  hADCasym_module_corrected->Draw("colz");
+
+  c2->cd(3);
+  hADCasym_APV->Draw("colz");
+
+  c2->cd(4);
+  hADCasym_APV_corrected->Draw("colz");
+  
+  TCanvas *c3 = new TCanvas("c3","",800,600);
+  Gain_APV_all->Draw("AP");
+
+  c2->Print(outfilepdf + "(");
+  c3->Print(outfilepdf + ")");
 }

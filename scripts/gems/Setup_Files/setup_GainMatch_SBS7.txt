@@ -1,0 +1,61 @@
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_11989*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_11990*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_11991*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_11992*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_11993*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_11994*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12000*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12008*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12022*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12035*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12049*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12052*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12053*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12058*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12064*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LH2/rootfiles/e1209019_fullreplay_12072*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_11996*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_11997*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_11998*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_11999*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12001*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12002*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12004*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12006*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12013*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12014*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12017*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12019*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12021*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12029*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12030*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12038*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12039*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12040*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12041*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12042*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12043*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12044*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12045*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12046*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12047*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12048*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12049*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12050*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12051*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12055*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12056*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12057*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12059*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS7/LD2/rootfiles/e1209019_fullreplay_12060*.root
+endlist
+abs(bb.tr.vz[0])<0.09&&bb.gem.track.nhits[0]>3&&bb.gem.track.chi2ndf[0]<15&&bb.ps.e>0.2&&abs((bb.ps.e+bb.sh.e)/bb.tr.p[0]-1.0)<0.3&&bb.tr.p[0]>1.0
+endcut
+detname bb.gem
+nmodules 12
+ADCcut 750.0
+ccor_cut 0.75
+deltat_cut 15.0
+mod_nstripu 3840 1280 1280 1280 3840 1280 1280 1280   1280 1280 1280 1280
+mod_nstripv 3840 1024 1024 1024 3840 1024 1024 1024   1536 1536 1536 1536
+endconfig

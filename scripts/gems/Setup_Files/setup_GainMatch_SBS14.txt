@@ -1,0 +1,57 @@
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13305*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13306*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13307*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13308*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13309*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13314*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13315*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13316*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13317*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13318*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13319*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13322*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13323*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13324*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13325*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13342*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13344*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13353*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13357*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13358*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13359*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13360*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13361*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13362*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13363*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13364*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13368*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LD2/rootfiles/e1209019_fullreplay_13369*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13239*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13240*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13241*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13242*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13243*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13244*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13312*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13313*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13320*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13321*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13345*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13346*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13348*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13349*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13351*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13352*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13375*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS14/LH2/rootfiles/e1209019_fullreplay_13376*.root
+endlist
+abs(bb.tr.vz[0])<0.09&&bb.gem.track.nhits[0]>3&&bb.gem.track.chi2ndf[0]<15&&bb.ps.e>0.2&&abs((bb.ps.e+bb.sh.e)/bb.tr.p[0]-1.0)<0.3&&bb.tr.p[0]>1.0
+endcut
+detname bb.gem
+nmodules 8
+ADCcut 750.0
+ccor_cut 0.75
+deltat_cut 15.0
+mod_nstripu 3840 3840 3840 3840   1280 1280 1280 1280
+mod_nstripv 3840 3840 3840 3840   1536 1536 1536 1536
+endconfig

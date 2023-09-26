@@ -1,0 +1,22 @@
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11436*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11500*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11547*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11548*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11573*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11587*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11588*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11589*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11590*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11592*.root
+/work/halla/sbs/sbs-gmn/pass0/SBS4/LH2/rootfiles/e1209019_fullreplay_11616*.root
+endlist
+abs(bb.tr.vz[0])<0.09&&bb.gem.track.nhits[0]>3&&bb.gem.track.chi2ndf[0]<15&&bb.ps.e>0.2&&abs((bb.ps.e+bb.sh.e)/bb.tr.p[0]-1.0)<0.3&&bb.tr.p[0]>1.0
+endcut
+detname bb.gem
+nmodules 12
+ADCcut 750.0
+ccor_cut 0.75
+deltat_cut 15.0
+mod_nstripu 3840 1280 1280 1280 3840 1280 1280 1280   1280 1280 1280 1280
+mod_nstripv 3840 1024 1024 1024 3840 1024 1024 1024   1536 1536 1536 1536
+endconfig

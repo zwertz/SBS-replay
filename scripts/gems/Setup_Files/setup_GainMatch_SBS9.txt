@@ -1,0 +1,39 @@
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13656*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13657*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13663*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13676*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13683*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13696*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13697*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13719*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13720*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13730*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13747*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13768*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13769*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13795*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LH2/rootfiles/e1209019_fullreplay_13719*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13796*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13660*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13661*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13662*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13664*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13665*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13666*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13677*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13678*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13679*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13680*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13681*.root
+/work/halla/sbs/sbs-gmn/pass1/SBS9/LD2/rootfiles/e1209019_fullreplay_13682*.root
+endlist
+abs(bb.tr.vz[0])<0.09&&bb.gem.track.nhits[0]>3&&bb.gem.track.chi2ndf[0]<15&&bb.ps.e>0.2&&abs((bb.ps.e+bb.sh.e)/bb.tr.p[0]-1.0)<0.3&&bb.tr.p[0]>1.0
+endcut
+detname bb.gem
+nmodules 8
+ADCcut 750.0
+ccor_cut 0.75
+deltat_cut 15.0
+mod_nstripu 3840 3840 3840 3840   1280 1280 1280 1280
+mod_nstripv 3840 3840 3840 3840   1536 1536 1536 1536
+endconfig
