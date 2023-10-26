@@ -282,6 +282,8 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   vector<double> hit_vstriphi(MAXNHITS);
   vector<double> hit_ADCU(MAXNHITS);
   vector<double> hit_ADCV(MAXNHITS);
+  vector<double> hit_Ugain(MAXNHITS);
+  vector<double> hit_Vgain(MAXNHITS);
   vector<double> hit_ADCavg(MAXNHITS);
   vector<double> hit_ADCasym(MAXNHITS);
   vector<double> hit_ccor_clust(MAXNHITS);
@@ -323,6 +325,8 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   varnames.push_back("hit.vstriphi");
   varnames.push_back("hit.ADCU");
   varnames.push_back("hit.ADCV");
+  varnames.push_back("hit.Ugain");
+  varnames.push_back("hit.Vgain");
   varnames.push_back("hit.ADCavg");
   varnames.push_back("hit.ADCasym");
 
@@ -392,6 +396,8 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   C->SetBranchAddress( branchnames["hit.vstriphi"].Data(), &(hit_vstriphi[0]) );
   C->SetBranchAddress( branchnames["hit.ADCU"].Data(), &(hit_ADCU[0]) );
   C->SetBranchAddress( branchnames["hit.ADCV"].Data(), &(hit_ADCV[0]) );
+  C->SetBranchAddress( branchnames["hit.Ugain"].Data(), &(hit_Ugain[0]) );
+  C->SetBranchAddress( branchnames["hit.Vgain"].Data(), &(hit_Vgain[0]) );
   C->SetBranchAddress( branchnames["hit.ADCavg"].Data(), &(hit_ADCavg[0]) );
   C->SetBranchAddress( branchnames["hit.ADCasym"].Data(), &(hit_ADCasym[0]) );
 
@@ -536,16 +542,18 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 
 	//cout << "ihit, tridx = " << ihit << ", " << tridx;
 	  
-	if( 0.5*(hit_ADCU[ihit]+hit_ADCV[ihit]) >= ADCcut && tridx == itrack && hit_nstripu[ihit]>1 && hit_nstripv[ihit]>1 && hit_ccor_clust[ihit] >= ccor_cut && fabs(hit_deltat[ihit]) <= deltat_cut ){
+	if( 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]+hit_ADCV[ihit]/hit_Vgain[ihit]) >= ADCcut && tridx == itrack && hit_nstripu[ihit]>1 && hit_nstripv[ihit]>1 && hit_ccor_clust[ihit] >= ccor_cut && fabs(hit_deltat[ihit]) <= deltat_cut ){
 	  // cout << ", ADCavg[ihit] = " << hit_ADCavg[ihit]
 	  // 	 << ", ADCasym[ihit] = " << hit_ADCasym[ihit]
 	  // 	 << ", (nstripu,nstripv) = (" << hit_nstripu[ihit] << ", " << hit_nstripv[ihit] << ")"
 	  // 	 << ", (ustriplo,ustriphi,ustripmax)=(" << hit_ustriplo[ihit] << ", " << hit_ustriphi[ihit] << ", " << hit_ustripmax[ihit] << ")"
 	  // 	 << ", (vstriplo,vstriphi,vstripmax)=(" << hit_vstriplo[ihit] << ", " << hit_vstriphi[ihit] << ", " << hit_vstripmax[ihit] << ")"
 	  // 	 << ", module = " << hit_module[ihit] << endl;
-	  hADCavg_allhits->Fill( 0.5*(hit_ADCU[ihit]+hit_ADCV[ihit]) );
-	  hADCavg_module->Fill( hit_module[ihit], 0.5*(hit_ADCU[ihit]+hit_ADCV[ihit]) );
-	  hADCasym_module->Fill( hit_module[ihit], hit_ADCasym[ihit] );
+
+	  double hit_ADCasym_nogain = (hit_ADCU[ihit]/hit_Ugain[ihit]-hit_ADCV[ihit]/hit_Vgain[ihit]) / (hit_ADCU[ihit]/hit_Ugain[ihit]+hit_ADCV[ihit]/hit_Vgain[ihit]);
+	  hADCavg_allhits->Fill( 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]+hit_ADCV[ihit]/hit_Vgain[ihit]) );
+	  hADCavg_module->Fill( hit_module[ihit], 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]+hit_ADCV[ihit]/hit_Vgain[ihit]) );
+	  hADCasym_module->Fill( hit_module[ihit], hit_ADCasym_nogain );
 	  hNstripX_module->Fill( hit_module[ihit], hit_nstripu[ihit] );
 	  hNstripY_module->Fill( hit_module[ihit], hit_nstripv[ihit] );
 
@@ -591,13 +599,11 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 	    // cout << "apvx hist index = " << xAPVmax + nAPVmaxX*module << endl;
 	    // cout << "apvy hist index = " << yAPVmax + nAPVmaxY*module << endl;
 	    //More 1D histograms    
-	    ( (TH1D*) (*hADCasym_vs_APVXY)[yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*module] )->Fill( hit_ADCasym[ihit] );
+	    ( (TH1D*) (*hADCasym_vs_APVXY)[yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*module] )->Fill( hit_ADCasym_nogain );
 
-	    ( (TH1D*) (*hADCasym_vs_APVX)[xAPVmax + nAPVmaxX*module] )->Fill( hit_ADCasym[ihit] );
-	    ( (TH1D*) (*hADCasym_vs_APVY)[yAPVmax + nAPVmaxY*module] )->Fill( hit_ADCasym[ihit] );
-
-	    hADCasym_APV->Fill(yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*module,hit_ADCasym[ihit]);
-
+	    ( (TH1D*) (*hADCasym_vs_APVX)[xAPVmax + nAPVmaxX*module] )->Fill( hit_ADCasym_nogain );
+	    ( (TH1D*) (*hADCasym_vs_APVY)[yAPVmax + nAPVmaxY*module] )->Fill( hit_ADCasym_nogain );
+	    hADCasym_APV->Fill(yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*module,hit_ADCasym_nogain);
 	    //cout << "done histogram fill" << endl;
 
 	    
@@ -610,7 +616,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
   //cout << "Event " << nevent << " done" << endl;
 
   //Fitting landau's to something
-  TFitResultPtr fitadcall = hADCavg_allhits->Fit("landau","qS","",1800.0,25000.);
+  TFitResultPtr fitadcall = hADCavg_allhits->Fit("landau","qS","",2000.0,25000.);
 
   double MPV_all = ( (TF1*) hADCavg_allhits->GetListOfFunctions()->FindObject("landau") )->GetParameter("MPV");
 
@@ -1262,7 +1268,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 
 	//cout << "ihit, tridx = " << ihit << ", " << tridx;
 	  
-	//if( 0.5*(hit_ADCU[ihit]+hit_ADCV[ihit]) >= ADCcut && tridx == itrack ){
+	//if( 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]+hit_ADCV[ihit]/hit_Vgain[ihit]) >= ADCcut && tridx == itrack ){
 	if( tridx == itrack ){
 	  // cout << ", ADCavg[ihit] = " << hit_ADCavg[ihit]
 	  // 	 << ", ADCasym[ihit] = " << hit_ADCasym[ihit]
@@ -1270,8 +1276,8 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 	  // 	 << ", (ustriplo,ustriphi,ustripmax)=(" << hit_ustriplo[ihit] << ", " << hit_ustriphi[ihit] << ", " << hit_ustripmax[ihit] << ")"
 	  // 	 << ", (vstriplo,vstriphi,vstripmax)=(" << hit_vstriplo[ihit] << ", " << hit_vstriphi[ihit] << ", " << hit_vstripmax[ihit] << ")"
 	  // 	 << ", module = " << hit_module[ihit] << endl;
-	  // hADCavg_allhits->Fill( 0.5*(hit_ADCU[ihit]+hit_ADCV[ihit]) );
-	  // hADCavg_module->Fill( hit_module[ihit], 0.5*(hit_ADCU[ihit]+hit_ADCV[ihit]) );
+	  // hADCavg_allhits->Fill( 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]+hit_ADCV[ihit]/hit_Vgain[ihit]) );
+	  // hADCavg_module->Fill( hit_module[ihit], 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]+hit_ADCV[ihit]/hit_Vgain[ihit]) );
 	  // hADCasym_module->Fill( hit_module[ihit], hit_ADCasym[ihit] );
 	  // hNstripX_module->Fill( hit_module[ihit], hit_nstripu[ihit] );
 	  // hNstripY_module->Fill( hit_module[ihit], hit_nstripv[ihit] );
@@ -1314,21 +1320,20 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 	    AppliedFactorsAllX += Xgaintemp;
 	    AppliedFactorsAllY += Ygaintemp;
 	    HitCountsAll += 1.0;
-	      
-	    hADCavg_allhits_corrected->Fill( 0.5*(hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
-	    hADCavg_module_corrected->Fill( hit_module[ihit], 0.5*(hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
-	    hADCasym_APV_corrected->Fill(yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*hit_module[ihit],(hit_ADCU[ihit]*Xgaintemp-hit_ADCV[ihit]*Ygaintemp) / (hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp));
+	    hADCavg_allhits_corrected->Fill( 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp+hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) );
+	    hADCavg_module_corrected->Fill( hit_module[ihit], 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp+hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) );
+	    hADCasym_APV_corrected->Fill(yAPVmax + nAPVmaxY*xAPVmax+nAPVmaxX*nAPVmaxY*hit_module[ihit],(hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp-hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) / (hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp+hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp));
 	    
-	    hADCasym_allhits_corrected->Fill( (hit_ADCU[ihit]*Xgaintemp-hit_ADCV[ihit]*Ygaintemp) /
-					      (hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
+	    hADCasym_allhits_corrected->Fill( (hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp-hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) /
+					      (hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp+hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) );
 
 	    hADCasym_module_corrected->Fill( module,
-					     (hit_ADCU[ihit]*Xgaintemp-hit_ADCV[ihit]*Ygaintemp) /
-					     (hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
+					     (hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp-hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) /
+					     (hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp+hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) );
 
-	    hADCasym_vs_ADCavg_allhits_corrected->Fill( 0.5*(hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp),
-							(hit_ADCU[ihit]*Xgaintemp-hit_ADCV[ihit]*Ygaintemp) /
-							(hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
+	    hADCasym_vs_ADCavg_allhits_corrected->Fill( 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp+hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp),
+							(hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp-hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) /
+							(hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp+hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) );
 
 	    // hADCasym_module->Fill( hit_module[ihit], hit_ADCasym[ihit] );
 	    // hNstripX_module->Fill( hit_module[ihit], hit_nstripu[ihit] );
@@ -1342,12 +1347,12 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 
 	     
 	    ( (TH2D*) (*hADC_UVmaxstrip_allhits_corrected_mod)[module] )->Fill( hit_ADCmaxstripU[ihit]*Xgaintemp, hit_ADCmaxstripV[ihit]*Ygaintemp );
-	    ( (TH2D*) (*hADC_UV_allhits_corrected_mod)[module] )->Fill(hit_ADCU[ihit]*Xgaintemp, hit_ADCV[ihit]*Ygaintemp );
+	    ( (TH2D*) (*hADC_UV_allhits_corrected_mod)[module] )->Fill(hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp, hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp );
 	    ( (TH2D*) (*hADC_UVmaxsamp_allhits_corrected_mod)[module] )->Fill(hit_ADCmaxsampU[ihit]*Xgaintemp, hit_ADCmaxsampV[ihit]*Ygaintemp);
 
-	    ( (TH2D*) (*hADCasym_vs_ADCavg_allhits_corrected_mod)[module] )->Fill( 0.5*(hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp), (hit_ADCU[ihit]*Xgaintemp-hit_ADCV[ihit]*Ygaintemp) / (hit_ADCU[ihit]*Xgaintemp+hit_ADCV[ihit]*Ygaintemp) );
+	    ( (TH2D*) (*hADCasym_vs_ADCavg_allhits_corrected_mod)[module] )->Fill( 0.5*(hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp+hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp), (hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp-hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) / (hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp+hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp) );
 	    
-	    hADC_UV_allhits_corrected->Fill( hit_ADCU[ihit]*Xgaintemp, hit_ADCV[ihit]*Ygaintemp );
+	    hADC_UV_allhits_corrected->Fill( hit_ADCU[ihit]/hit_Ugain[ihit]*Xgaintemp, hit_ADCV[ihit]/hit_Vgain[ihit]*Ygaintemp );
 	    hADC_UVmaxstrip_allhits_corrected->Fill( hit_ADCmaxstripU[ihit]*Xgaintemp, hit_ADCmaxstripV[ihit]*Ygaintemp );
 	    hADC_UVmaxsamp_allhits_corrected->Fill( hit_ADCmaxsampU[ihit]*Xgaintemp, hit_ADCmaxsampV[ihit]*Ygaintemp );
 	      
@@ -1381,7 +1386,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
 
   outfile_db << endl << "# Module average gains relative to target ADC peak position of " << target_ADC << endl;
 
-  TFitResultPtr ADCfit_all = hADCavg_allhits_corrected->Fit("landau","qS","",1800,25000.0);
+  TFitResultPtr ADCfit_all = hADCavg_allhits_corrected->Fit("landau","qS","",2000,25000.0);
 
   MPV_all = ( (TF1*) hADCavg_allhits_corrected->GetListOfFunctions()->FindObject("landau") )->GetParameter("MPV");
 
@@ -1425,7 +1430,7 @@ void GEM_GainMatch( const char *configfilename, const char *outfname="GEM_gainma
     htemp = hADCavg_module_corrected->ProjectionY( hname.Data(), i+1, i+1 );
 
     if( htemp->GetEntries() >= 5000 ){
-      TFitResultPtr ADCfit_module = htemp->Fit("landau","qS","",ADCcut,25000.0);
+      TFitResultPtr ADCfit_module = htemp->Fit("landau","qS","",2000,25000.0);
       
       double MPV_mod = ( (TF1*) (htemp->GetListOfFunctions()->FindObject("landau") ) )->GetParameter("MPV");
       

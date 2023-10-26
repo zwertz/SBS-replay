@@ -15,6 +15,7 @@ variable sbs.hcal.index
 block sbs.hcal.clus.*
 variable sbs.hcal.nclus
 block sbs.hcal.clus_blk.*
+block sbs.hcal.goodblock.*
 variable sbs.hcal.ngoodADChits
 variable sbs.trig.adcelemID
 variable sbs.trig.a_time
@@ -59,6 +60,7 @@ th2d hClusE_vs_elem_hcal 'Primary Cluster Energy vs element ID : HCAL; channel; 
 
 #Page 8: Cluster Heatmap
 th2d hClus_pos_hcal 'Position of best cluster : HCal; Column; Row' sbs.hcal.colblk sbs.hcal.rowblk 12 0 12 24 0 24 sbs.hcal.nclus>0
+th2d hClus_pos_hcal_cut 'Position of best cluster : HCal coincidence; Column; Row' sbs.hcal.colblk sbs.hcal.rowblk 12 0 12 24 0 24 sbs.hcal.nclus>0&&(g.trigbits==4||g.trigbits==5)
 
 #Page 9: HCal ADC Time
 #(macro) ADC Time No LED
