@@ -747,7 +747,7 @@ bb.gem.minhitsontrack = 3
 
 bb.gem.maxhitcombos = 5000
 bb.gem.maxhitcombos_inner = 25000
-bb.gem.maxhitcombos_total = 1000000000000000
+bb.gem.maxhitcombos_total = 1.e16
 
 bb.gem.tryfasttrack = 1
 
@@ -1049,9 +1049,144 @@ bb.gem.m6.angle =        2.150863      -0.9955862      -0.2454232
 bb.gem.m7.position =       0.7719042     -0.01264669        1.535455
 bb.gem.m7.angle =      -0.2715125    -0.006344476       -0.140722
 
+----------[ 2023-11-03 12:00:00 ] # after working on layer 4
+
+bb.gem.m0.position =               0               0               0
+bb.gem.m0.angle =               0               0               0
+bb.gem.m1.position =    -0.001919386     -0.01144272       0.1649936
+bb.gem.m1.angle =      0.03422861      0.06241709      0.05741344
+bb.gem.m2.position =    -0.007506479     0.005146195       0.2790084
+bb.gem.m2.angle =      0.07098153      0.08901122       -0.305315
+bb.gem.m3.position =     -0.00904901     0.004677822       0.4569755
+bb.gem.m3.angle =       0.1055534       0.1216376       -0.462159
+bb.gem.m4.position =      -0.7642844     0.001928759        1.575393
+bb.gem.m4.angle =      -0.3754582       0.1502524      -0.4553106
+bb.gem.m5.position =      -0.2515145    -0.002563955        1.530898
+bb.gem.m5.angle =      -0.6721636       0.2225307      -0.3566657
+bb.gem.m6.position =       0.2592403    -0.008729522        1.579154
+bb.gem.m6.angle =       0.5585925      -0.7344034      -0.2644649
+bb.gem.m7.position =       0.7725647     -0.01280843        1.537327
+bb.gem.m7.angle =     -0.07392376      0.09624983      -0.2649668
+
+
 #################### END TIME-DEPENDENT ALIGNMENT PARAMETERS ##############################
 
-################ BEGIN TIME-DEPENDENT GAIN MATCH AND THRESHOLD PARAMETERS ###############
+#################### BEGIN TIME-DEPENDENT GAIN MATCH PARAMETERS ##############################
+# these are cleared out at the beginning of GEN, we will put in later:
+
+
+########################### END TIME-DEPENDENT GAIN-MATCH PARAMETERS #########################
+
+###################### TIME-DEPENDENT PEDESTAL FILES ###############################
+#      NOTE: cleared out older GMN pedestal files from this version of the DB:     #
+####################################################################################
+
+--------[ 2024-04-08 18:30:00 ] #after replacing Layer 1 backplane
+bb.gem.pedfile = 20220701/gemped/daq_ped_bb_gem_run7096.dat
+bb.gem.cmfile = 20220701/gemped/db_cmr_bb_gem_run7096.dat
+
+--------[ 2022-07-01 14:30:00 ] # new pedestal after replacing multiple APVs and backplanes during the break after GMn
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run14035.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run14035.dat
+
+--------[ 2022-08-01 16:10:00 ] # new pedestal after some APVs has shifted
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run1039.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run1039.dat
+
+--------[ 2022-08-25 16:35:00 ] # new pedestal after some APVs has shifted
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run1224.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run1224.dat
+
+--------[ 2022-10-04 14:00:00 ] # new pedestal after some APVs has shifted
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run1653.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run1653.dat
+
+--------[ 2022-10-07 14:00:00 ] # new pedestal after some APVs have been fixed
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run1670.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run1670.dat
+
+--------[ 2022-10-12 13:50:00 ] 
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run1899.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run1899.dat
+
+--------[ 2022-11-03 10:30:00 ] 
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run2360.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run2360.dat
+
+--------[ 2023-01-10 21:30:00 ] 
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run3433.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run3433.dat
+
+--------[ 2023-01-18 17:06:00 ] 
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run3648.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run3648.dat
+
+--------[ 2023-01-20 17:00:00 ] 
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run3691.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run3691.dat
+
+--------[ 2023-01-24 13:22:00 ] 
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run3772.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run3772.dat
+
+--------[ 2023-08-21 0:00:00  ]
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run4739.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run4739.dat
+
+--------[ 2023-09-01 13:04:00 ]
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run4845.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run4845.dat
+
+--------[ 2023-09-20 19:00:00 ] #new pedestal after replacing a backplane
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run5228.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run5228.dat
+
+--------[ 2023-10-05 15:35:00 ] #new pedestal after replacing layer2 backplane in BigBite
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run5566.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run5566.dat
+
+--------[ 2023-10-25 20:15:00 ] 
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run5963.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run5963.dat
+
+--------[ 2023-11-04 23:15:00 ] #new pedestals after swapping L4 G0
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run6124.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run6124.dat
+
+--------[ 2023-11-09 20:30:00 ] #sbs_changes
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run6187.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run6187.dat
+
+--------[ 2023-11-13 17:00:00 ] #sbs_changes
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run6215.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run6215.dat
+
+
+--------[ 2024-04-01 00:00:00 ] #after hv upgrades
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run6916.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run6916.dat
+
+--------[ 2024-04-08 18:30:00 ] #after replacing Layer 1 backplane
+bb.gem.pedfile = gemped/daq_ped_bb_gem_run7096.dat
+bb.gem.cmfile = gemped/db_cmr_bb_gem_run7096.dat
+
+######################  END TIME-DEPENDENT PEDESTAL FILES #####################
+
+-------[ 2022-01-01 00:00:00 ]
+
+bb.gem.suppressfirstlast=0
+
+#bb.gem.m5.suppressfirstlast=0
+
+bb.gem.usestriptimingcut = 0
+bb.gem.maxstrip_t0 = 85.0 
+bb.gem.maxstrip_tcut = 40.0
+
+bb.gem.addstrip_tcut = 80.0
+bb.gem.addstrip_ccor_cut = -1.1
+
+bb.gem.m1.suppressfirstlast = 0
+bb.gem.m1.maxstrip_tcut = 85.0
 
 -------[ 2022-10-14 20:00:00 ] # start GEN-2 kinematics
 
@@ -1840,6 +1975,7 @@ bb.gem.m7.ADCratio_sigma_deconv =      0.14513
 bb.gem.m7.sigma_tcorr =       5.2412
 
 
+
 --------[ 2023-01-01 00:00:00 ] #start of GEN-4
 
 bb.gem.addstrip_tcut = 35.0
@@ -2100,6 +2236,387 @@ bb.gem.m7.ADCratio_sigma =      0.12516
 bb.gem.m7.ADCratio_sigma_deconv =      0.10899
 
 bb.gem.m7.sigma_tcorr =       4.8908
+
+--------[ 2023-01-21 18:00:00 ] #Shift in module 1 starting run 3708
+
+bb.gem.m1.maxstrip_t0 =       88.9      89.11
+bb.gem.m1.maxstrip_tsigma =      9.002      8.896
+bb.gem.m1.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m1.maxstrip_t0_deconv =      54.84      54.45
+bb.gem.m1.maxstrip_tsigma_deconv =      20.11      19.93
+bb.gem.m1.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m1.maxstrip_t0_fit =      21.91      22.21
+bb.gem.m1.maxstrip_tsigma_fit =      16.08      15.52
+bb.gem.m1.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m1.deltat_sigma =       3.3625
+bb.gem.m1.deltat_cut =       33.625
+bb.gem.m1.deltat_sigma_deconv =       8.3495
+bb.gem.m1.deltat_cut_deconv =       83.495
+bb.gem.m1.deltat_sigma_fit =       4.3641
+bb.gem.m1.deltat_cut_fit =       43.641
+
+bb.gem.m1.HitTimeMean =       87.824       88.515
+bb.gem.m1.HitTimeSigma =       8.7996       8.6139
+bb.gem.m1.HitTimeMeanDeconv =       51.582       52.504
+bb.gem.m1.HitTimeSigmaDeconv =       19.917       19.126
+bb.gem.m1.HitTimeMeanFit =       20.991        21.45
+bb.gem.m1.HitTimeSigmaFit =       15.042       15.776
+
+bb.gem.m1.ADCasym_sigma =     0.085441
+bb.gem.m1.ADCratio_sigma =      0.15898
+bb.gem.m1.ADCratio_sigma_deconv =       0.1543
+
+bb.gem.m1.sigma_tcorr =       7.9402
+
+
+--------[ 2023-01-30 01:45:00 ] #Shift in module 4 starting run 3868-4037
+
+bb.gem.m4.maxstrip_t0 =      86.22      92.94
+bb.gem.m4.maxstrip_tsigma =      6.437      5.604
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      44.63      61.61
+bb.gem.m4.maxstrip_tsigma_deconv =      13.96      11.66
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      16.07      26.17
+bb.gem.m4.maxstrip_tsigma_fit =      9.244      11.47
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       2.2696
+bb.gem.m4.deltat_cut =       22.696
+bb.gem.m4.deltat_sigma_deconv =       7.0605
+bb.gem.m4.deltat_cut_deconv =       70.605
+bb.gem.m4.deltat_sigma_fit =       3.0423
+bb.gem.m4.deltat_cut_fit =       30.423
+
+bb.gem.m4.HitTimeMean =       85.106       90.951
+bb.gem.m4.HitTimeSigma =       5.8946        5.725
+bb.gem.m4.HitTimeMeanDeconv =       41.587       55.826
+bb.gem.m4.HitTimeSigmaDeconv =       12.996       11.595
+bb.gem.m4.HitTimeMeanFit =       14.909       23.116
+bb.gem.m4.HitTimeSigmaFit =       9.0061       10.357
+
+bb.gem.m4.ADCasym_sigma =     0.069044
+bb.gem.m4.ADCratio_sigma =     0.080293
+bb.gem.m4.ADCratio_sigma_deconv =      0.13159
+
+bb.gem.m4.sigma_tcorr =       4.9199
+
+
+--------[ 2023-02-10 03:00:00 ] #Module 4 returns back to normal starting run 4038
+
+bb.gem.m4.maxstrip_t0 =      85.99      87.31
+bb.gem.m4.maxstrip_tsigma =      6.292       5.84
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      50.11      56.86
+bb.gem.m4.maxstrip_tsigma_deconv =       12.3      10.43
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      19.34      21.01
+bb.gem.m4.maxstrip_tsigma_fit =      11.77      11.38
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       1.8941
+bb.gem.m4.deltat_cut =       18.941
+bb.gem.m4.deltat_sigma_deconv =       4.9393
+bb.gem.m4.deltat_cut_deconv =       49.393
+bb.gem.m4.deltat_sigma_fit =       2.5929
+bb.gem.m4.deltat_cut_fit =       25.929
+
+bb.gem.m4.HitTimeMean =       84.514       85.563
+bb.gem.m4.HitTimeSigma =       5.9559       5.7145
+bb.gem.m4.HitTimeMeanDeconv =       46.021       51.478
+bb.gem.m4.HitTimeSigmaDeconv =       11.925         10.8
+bb.gem.m4.HitTimeMeanFit =       17.016       17.836
+bb.gem.m4.HitTimeSigmaFit =       10.431       10.257
+
+bb.gem.m4.ADCasym_sigma =       0.0518
+bb.gem.m4.ADCratio_sigma =      0.10239
+bb.gem.m4.ADCratio_sigma_deconv =      0.10985
+
+bb.gem.m4.sigma_tcorr =       4.4097
+
+
+--------[ 2023-02-16 01:45:00 ] # Shift in Module 4 starting run 4186-4204
+
+bb.gem.m4.maxstrip_t0 =      87.41         93
+bb.gem.m4.maxstrip_tsigma =      5.986      5.035
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      50.89      65.15
+bb.gem.m4.maxstrip_tsigma_deconv =      12.72      10.43
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      20.24      30.13
+bb.gem.m4.maxstrip_tsigma_fit =      11.63      11.66
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       2.6172
+bb.gem.m4.deltat_cut =       26.172
+bb.gem.m4.deltat_sigma_deconv =       5.4423
+bb.gem.m4.deltat_cut_deconv =       54.423
+bb.gem.m4.deltat_sigma_fit =       2.5851
+bb.gem.m4.deltat_cut_fit =       25.851
+
+bb.gem.m4.HitTimeMean =       85.731       91.095
+bb.gem.m4.HitTimeSigma =       6.0401       5.8449
+bb.gem.m4.HitTimeMeanDeconv =       46.361       59.855
+bb.gem.m4.HitTimeSigmaDeconv =       12.856       12.447
+bb.gem.m4.HitTimeMeanFit =       17.303       26.581
+bb.gem.m4.HitTimeSigmaFit =       9.7593       11.926
+
+bb.gem.m4.ADCasym_sigma =     0.062873
+bb.gem.m4.ADCratio_sigma =       0.1126
+bb.gem.m4.ADCratio_sigma_deconv =      0.10644
+
+bb.gem.m4.sigma_tcorr =       4.6322
+
+--------[ 2023-02-17 11:05:00 ] # Module 4 returns back to normal starting run 4214
+
+bb.gem.m4.maxstrip_t0 =      85.99      87.31
+bb.gem.m4.maxstrip_tsigma =      6.292       5.84
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      50.11      56.86
+bb.gem.m4.maxstrip_tsigma_deconv =       12.3      10.43
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      19.34      21.01
+bb.gem.m4.maxstrip_tsigma_fit =      11.77      11.38
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       1.8941
+bb.gem.m4.deltat_cut =       18.941
+bb.gem.m4.deltat_sigma_deconv =       4.9393
+bb.gem.m4.deltat_cut_deconv =       49.393
+bb.gem.m4.deltat_sigma_fit =       2.5929
+bb.gem.m4.deltat_cut_fit =       25.929
+
+bb.gem.m4.HitTimeMean =       84.514       85.563
+bb.gem.m4.HitTimeSigma =       5.9559       5.7145
+bb.gem.m4.HitTimeMeanDeconv =       46.021       51.478
+bb.gem.m4.HitTimeSigmaDeconv =       11.925         10.8
+bb.gem.m4.HitTimeMeanFit =       17.016       17.836
+bb.gem.m4.HitTimeSigmaFit =       10.431       10.257
+
+bb.gem.m4.ADCasym_sigma =       0.0518
+bb.gem.m4.ADCratio_sigma =      0.10239
+bb.gem.m4.ADCratio_sigma_deconv =      0.10985
+
+bb.gem.m4.sigma_tcorr =       4.4097
+
+
+--------[ 2023-02-18 00:28:00 ] # Shift in Module 4 starting run 4230-4236
+
+bb.gem.m4.maxstrip_t0 =      86.51      93.84
+bb.gem.m4.maxstrip_tsigma =      5.993      5.012
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      49.27      67.19
+bb.gem.m4.maxstrip_tsigma_deconv =      12.62      9.285
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      18.81       32.4
+bb.gem.m4.maxstrip_tsigma_fit =      10.36      11.23
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       2.4988
+bb.gem.m4.deltat_cut =       24.988
+bb.gem.m4.deltat_sigma_deconv =       5.8383
+bb.gem.m4.deltat_cut_deconv =       58.383
+bb.gem.m4.deltat_sigma_fit =       3.9369
+bb.gem.m4.deltat_cut_fit =       39.369
+
+bb.gem.m4.HitTimeMean =       84.701       92.249
+bb.gem.m4.HitTimeSigma =       5.3641       5.5923
+bb.gem.m4.HitTimeMeanDeconv =       44.835       62.766
+bb.gem.m4.HitTimeSigmaDeconv =       12.588       11.218
+bb.gem.m4.HitTimeMeanFit =       16.651       28.493
+bb.gem.m4.HitTimeSigmaFit =       9.3648       11.162
+
+bb.gem.m4.ADCasym_sigma =     0.047927
+bb.gem.m4.ADCratio_sigma =     0.090434
+bb.gem.m4.ADCratio_sigma_deconv =      0.11272
+
+bb.gem.m4.sigma_tcorr =       4.9084
+
+
+--------[ 2023-02-18 20:00:00 ] # Module 4 returns back to normal starting run 4251
+
+bb.gem.m4.maxstrip_t0 =      85.99      87.31
+bb.gem.m4.maxstrip_tsigma =      6.292       5.84
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      50.11      56.86
+bb.gem.m4.maxstrip_tsigma_deconv =       12.3      10.43
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      19.34      21.01
+bb.gem.m4.maxstrip_tsigma_fit =      11.77      11.38
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       1.8941
+bb.gem.m4.deltat_cut =       18.941
+bb.gem.m4.deltat_sigma_deconv =       4.9393
+bb.gem.m4.deltat_cut_deconv =       49.393
+bb.gem.m4.deltat_sigma_fit =       2.5929
+bb.gem.m4.deltat_cut_fit =       25.929
+
+bb.gem.m4.HitTimeMean =       84.514       85.563
+bb.gem.m4.HitTimeSigma =       5.9559       5.7145
+bb.gem.m4.HitTimeMeanDeconv =       46.021       51.478
+bb.gem.m4.HitTimeSigmaDeconv =       11.925         10.8
+bb.gem.m4.HitTimeMeanFit =       17.016       17.836
+bb.gem.m4.HitTimeSigmaFit =       10.431       10.257
+
+bb.gem.m4.ADCasym_sigma =       0.0518
+bb.gem.m4.ADCratio_sigma =      0.10239
+bb.gem.m4.ADCratio_sigma_deconv =      0.10985
+
+bb.gem.m4.sigma_tcorr =       4.4097
+
+
+--------[ 2023-02-23 05:10:00 ] # Shift in Module 4 starting run 4315-4341
+
+bb.gem.m4.maxstrip_t0 =      86.59       85.8
+bb.gem.m4.maxstrip_tsigma =       6.47      6.005
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      49.42      52.75
+bb.gem.m4.maxstrip_tsigma_deconv =      13.34      11.02
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      19.42      17.58
+bb.gem.m4.maxstrip_tsigma_fit =      11.15      10.35
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       2.8519
+bb.gem.m4.deltat_cut =       28.519
+bb.gem.m4.deltat_sigma_deconv =        6.747
+bb.gem.m4.deltat_cut_deconv =        67.47
+bb.gem.m4.deltat_sigma_fit =       3.5929
+bb.gem.m4.deltat_cut_fit =       35.929
+
+bb.gem.m4.HitTimeMean =       85.082       83.975
+bb.gem.m4.HitTimeSigma =       6.0129        5.886
+bb.gem.m4.HitTimeMeanDeconv =       46.123       47.017
+bb.gem.m4.HitTimeSigmaDeconv =       13.205       11.189
+bb.gem.m4.HitTimeMeanFit =       17.313       14.281
+bb.gem.m4.HitTimeSigmaFit =       10.151       9.2202
+
+bb.gem.m4.ADCasym_sigma =     0.073311
+bb.gem.m4.ADCratio_sigma =      0.13742
+bb.gem.m4.ADCratio_sigma_deconv =      0.12722
+
+bb.gem.m4.sigma_tcorr =       4.9201
+
+--------[ 2023-02-25 11:20:00 ] # Shift in Module 4 starting run 4343-4357
+
+bb.gem.m4.maxstrip_t0 =      86.13      89.46
+bb.gem.m4.maxstrip_tsigma =      6.031      5.884
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      48.67      58.99
+bb.gem.m4.maxstrip_tsigma_deconv =      13.51      11.16
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      18.16       22.6
+bb.gem.m4.maxstrip_tsigma_fit =      10.35      10.21
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       2.0676
+bb.gem.m4.deltat_cut =       20.676
+bb.gem.m4.deltat_sigma_deconv =       5.8101
+bb.gem.m4.deltat_cut_deconv =       58.101
+bb.gem.m4.deltat_sigma_fit =       3.4994
+bb.gem.m4.deltat_cut_fit =       34.994
+
+bb.gem.m4.HitTimeMean =       84.334       87.431
+bb.gem.m4.HitTimeSigma =       6.5333        5.581
+bb.gem.m4.HitTimeMeanDeconv =       45.132       53.283
+bb.gem.m4.HitTimeSigmaDeconv =       11.696       11.205
+bb.gem.m4.HitTimeMeanFit =       16.136       19.808
+bb.gem.m4.HitTimeSigmaFit =       9.5778       10.124
+
+bb.gem.m4.ADCasym_sigma =     0.064506
+bb.gem.m4.ADCratio_sigma =     0.095417
+bb.gem.m4.ADCratio_sigma_deconv =     0.065875
+
+bb.gem.m4.sigma_tcorr =       4.9049
+
+
+--------[ 2023-02-25 23:00:00 ] # Shift in Module 4 starting run 4359-4379
+
+bb.gem.m4.maxstrip_t0 =      85.61       83.6
+bb.gem.m4.maxstrip_tsigma =      6.582      5.878
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      47.87      48.38
+bb.gem.m4.maxstrip_tsigma_deconv =      12.34      10.38
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      18.52       13.4
+bb.gem.m4.maxstrip_tsigma_fit =      11.31       9.59
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       2.5358
+bb.gem.m4.deltat_cut =       25.358
+bb.gem.m4.deltat_sigma_deconv =       7.2694
+bb.gem.m4.deltat_cut_deconv =       72.694
+bb.gem.m4.deltat_sigma_fit =       2.8848
+bb.gem.m4.deltat_cut_fit =       28.848
+
+bb.gem.m4.HitTimeMean =       84.427       81.839
+bb.gem.m4.HitTimeSigma =       6.2991       5.9025
+bb.gem.m4.HitTimeMeanDeconv =       44.878       43.434
+bb.gem.m4.HitTimeSigmaDeconv =       13.116       10.488
+bb.gem.m4.HitTimeMeanFit =       16.523       11.435
+bb.gem.m4.HitTimeSigmaFit =       10.203       8.3469
+
+bb.gem.m4.ADCasym_sigma =      0.06912
+bb.gem.m4.ADCratio_sigma =      0.11715
+bb.gem.m4.ADCratio_sigma_deconv =      0.13044
+
+bb.gem.m4.sigma_tcorr =       5.1387
+
+--------[ 2023-03-08 20:30:00 ] # Module 4 returns back to normal starting run 4470
+
+bb.gem.m4.maxstrip_t0 =      85.99      87.31
+bb.gem.m4.maxstrip_tsigma =      6.292       5.84
+bb.gem.m4.maxstrip_tcut =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_deconv =      50.11      56.86
+bb.gem.m4.maxstrip_tsigma_deconv =       12.3      10.43
+bb.gem.m4.maxstrip_tcut_deconv =        4.5        4.5
+
+bb.gem.m4.maxstrip_t0_fit =      19.34      21.01
+bb.gem.m4.maxstrip_tsigma_fit =      11.77      11.38
+bb.gem.m4.maxstrip_tcut_fit =        4.5        4.5
+
+bb.gem.m4.deltat_sigma =       1.8941
+bb.gem.m4.deltat_cut =       18.941
+bb.gem.m4.deltat_sigma_deconv =       4.9393
+bb.gem.m4.deltat_cut_deconv =       49.393
+bb.gem.m4.deltat_sigma_fit =       2.5929
+bb.gem.m4.deltat_cut_fit =       25.929
+
+bb.gem.m4.HitTimeMean =       84.514       85.563
+bb.gem.m4.HitTimeSigma =       5.9559       5.7145
+bb.gem.m4.HitTimeMeanDeconv =       46.021       51.478
+bb.gem.m4.HitTimeSigmaDeconv =       11.925         10.8
+bb.gem.m4.HitTimeMeanFit =       17.016       17.836
+bb.gem.m4.HitTimeSigmaFit =       10.431       10.257
+
+bb.gem.m4.ADCasym_sigma =       0.0518
+bb.gem.m4.ADCratio_sigma =      0.10239
+bb.gem.m4.ADCratio_sigma_deconv =      0.10985
+
+bb.gem.m4.sigma_tcorr =       4.4097
 
 
 --------[ 2023-09-12 22:22:22 ] # start of GEN-4b
@@ -2363,94 +2880,6 @@ bb.gem.m7.ADCratio_sigma_deconv =      0.11601
 
 bb.gem.m7.sigma_tcorr =       4.9066
 
-###################### TIME-DEPENDENT PEDESTAL FILES ###############################
-####################################################################################
-
---------[ 2022-07-01 14:30:00 ] # new pedestal after replacing multiple APVs and backplanes during the break after GMn
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run14035.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run14035.dat
-
---------[ 2022-08-01 16:10:00 ] # new pedestal after some APVs has shifted
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run1039.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run1039.dat
-
---------[ 2022-08-25 16:35:00 ] # new pedestal after some APVs has shifted
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run1224.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run1224.dat
-
---------[ 2022-10-04 14:00:00 ] # new pedestal after some APVs has shifted
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run1653.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run1653.dat
-
---------[ 2022-10-07 14:00:00 ] # new pedestal after some APVs have been fixed
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run1670.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run1670.dat
-
---------[ 2022-10-12 13:50:00 ] 
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run1899.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run1899.dat
-
---------[ 2022-11-03 10:30:00 ] 
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run2360.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run2360.dat
-
---------[ 2023-01-10 21:30:00 ] 
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run3433.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run3433.dat
-
---------[ 2023-01-18 17:06:00 ] 
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run3648.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run3648.dat
-
---------[ 2023-01-20 17:00:00 ] 
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run3691.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run3691.dat
-
---------[ 2023-01-24 13:22:00 ] 
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run3772.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run3772.dat
-
---------[ 2023-08-21 0:00:00  ]
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run4739.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run4739.dat
-
---------[ 2023-09-01 13:04:00 ]
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run4845.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run4845.dat
-
---------[ 2023-09-20 19:00:00 ] #new pedestal after replacing a backplane
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run5228.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run5228.dat
-
---------[ 2023-10-05 15:35:00 ] #new pedestal after replacing layer2 backplane in BigBite
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run5566.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run5566.dat
-
---------[ 2023-10-05 15:35:00 ] #new pedestal after replacing layer2 backplane in BigBite
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run5566.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run5566.dat
-
---------[ 2023-10-25 20:15:00 ] 
-bb.gem.pedfile = gemped/daq_ped_bb_gem_run5963.dat
-bb.gem.cmfile = gemped/db_cmr_bb_gem_run5963.dat
-
-######################  END TIME-DEPENDENT PEDESTAL FILES #####################
-
--------[ 2022-01-01 00:00:00 ]
-
-bb.gem.suppressfirstlast=0
-
-#bb.gem.m5.suppressfirstlast=0
-
-bb.gem.usestriptimingcut = 0
-bb.gem.maxstrip_t0 = 85.0 
-bb.gem.maxstrip_tcut = 40.0
-
-bb.gem.addstrip_tcut = 80.0
-bb.gem.addstrip_ccor_cut = -1.1
-
-bb.gem.m1.suppressfirstlast = 0
-bb.gem.m1.maxstrip_tcut = 85.0
 
 -------[ 2022-10-14 20:00:00 ] # start GEN-2 kinematics
 
@@ -2716,5 +3145,92 @@ bb.gem.useforwardopticsconstraint = 0
 
 bb.gem.useopticsconstraint = 1
 bb.gem.useslopeconstraint = 1
-bb.gem.useforwardopticsconstraint = 0  #Set to 1 later
+
+bb.gem.useforwardopticsconstraint = 1
+bb.gem.useconstraint = 1
+
+---------[ 2023-11-02 00:00:00 ] # Cosmic data before A_LL
+
+bb.gem.useconstraint = 0
+bb.gem.useopticsconstraint = 0
+bb.gem.useslopeconstraint = 0
+bb.gem.useforwardopticsconstraint = 0
+
+---------[ 2023-11-16 14:30:00 ] # Back to Beam A_LL
+
+bb.gem.gridbinwidthx = 0.02
+bb.gem.gridbinwidthy = 0.02
+
+bb.gem.gridedgetolerancex = 0.005
+bb.gem.gridedgetolerancey = 0.005
+
+bb.gem.useopticsconstraint = 1
+bb.gem.useslopeconstraint = 1
+bb.gem.useforwardopticsconstraint = 0
+bb.gem.useconstraint = 1
+
+
+bb.gem.constraintwidth_theta = 0.2
+bb.gem.constraintwidth_phi = 0.1
+
+bb.gem.xpfp_min = -0.6
+bb.gem.xpfp_max = 0.4
+
+bb.gem.ypfp_min = -0.15
+bb.gem.ypfp_max = 0.15
+
+bb.gem.pmin = 0.1 
+bb.gem.pmax = 4.5
+
+bb.gem.xptar_min = -0.35
+bb.gem.xptar_max = 0.35
+
+
+bb.gem.yptar_min = -0.15
+bb.gem.yptar_max = 0.15
+
+bb.gem.ytar_min = -0.25
+bb.gem.ytar_max = 0.25
+
+bb.gem.trackchi2cut = 150.0
+
+bb.gem.use_enhanced_chi2 = 0
+bb.gem.minhighqualityhitsontrack = 0
+bb.gem.trackchi2cut_hitquality = 100.0
+
+---------[ 2024-04-01 00:00:00 ] # Cosmic data before GEN-RP
+
+bb.gem.useconstraint = 0
+bb.gem.useopticsconstraint = 0
+bb.gem.useslopeconstraint = 0
+bb.gem.useforwardopticsconstraint = 0
+
+bb.gem.dump_geometry_info = 1
+
+# below are wider values to use if we don't have a good initial alignment:
+bb.gem.gridbinwidthx = 0.05
+bb.gem.gridbinwidthy = 0.05
+bb.gem.gridedgetolerancex = 0.02
+bb.gem.gridedgetolerancey = 0.02
+bb.gem.trackchi2cut = 300.0
+
+
+# this will need to be adjusted before beam; at minimum, turn on the main constraint.
+
+---------[ 2024-04-16 18:00:00 ] # Before Beam Checkout before GEN-RP
+bb.gem.useopticsconstraint = 1
+bb.gem.useslopeconstraint = 1
+bb.gem.useforwardopticsconstraint = 0
+bb.gem.useconstraint = 1
+
+bb.gem.dump_geometry_info = 0
+
+# typical values after alignment:
+
+bb.gem.gridbinwidthx = 0.01
+bb.gem.gridbinwidthy = 0.01
+bb.gem.gridedgetolerancex = 0.0025
+bb.gem.gridedgetolerancey = 0.0025
+
+bb.gem.trackchi2cut = 50.0
 

@@ -465,8 +465,16 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
 
   //Use "rotated" versions of the focal plane variables:
   double xfp[MAXNTRACKS], yfp[MAXNTRACKS], thfp[MAXNTRACKS], phfp[MAXNTRACKS];
+  double xfp0[MAXNTRACKS], yfp0[MAXNTRACKS], thfp0[MAXNTRACKS], phfp0[MAXNTRACKS];
   //Also need target variables:
   double xtgt[MAXNTRACKS], ytgt[MAXNTRACKS], thtgt[MAXNTRACKS], phtgt[MAXNTRACKS];
+
+  double bbtrchi2[MAXNTRACKS], bbtrchi2hits[MAXNTRACKS], bbtrnhits[MAXNTRACKS], 
+    bbtrngoodhits[MAXNTRACKS], bbtrt0[MAXNTRACKS];
+
+  int MAXNCP = 2;
+  double xfcp[MAXNCP],yfcp[MAXNCP],zfcp[MAXNCP];
+  double xbcp[MAXNCP],ybcp[MAXNCP],zbcp[MAXNCP];
 
   int nclustHCAL;
   double xHCAL[MAXHCALCLUSTERS], yHCAL[MAXHCALCLUSTERS], EHCAL[MAXHCALCLUSTERS];
@@ -480,6 +488,11 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
 
   int nhodoclust; //number of TRACK-MATCHED hodo clusters:
 
+  int MAXGRINCHCLUSTERS=100;
+  
+  double nclustGRINCH;
+  double GRINCH_trackindex, GRINCH_clustersize, GRINCH_tmean, GRINCH_xmean, GRINCH_ymean, GRINCH_adc, GRINCH_totmean;
+
   //Ignore hodo variables for meow:
   // int maxHODOclusters=100;
 
@@ -491,10 +504,29 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
   C->SetBranchStatus("*",0);
 
   //Hope this works: in pass 2 we will replace with g.runnum
-  C->SetBranchStatus("fEvtHdr.fRun",1);
-  UInt_t runnumber;
-  C->SetBranchAddress("fEvtHdr.fRun",&runnumber);
+  //C->SetBranchStatus("fEvtHdr.fRun",1);
+  //UInt_t runnumber;
+  //C->SetBranchAddress("fEvtHdr.fRun",&runnumber);
   
+  C->SetBranchStatus("g.runnum",1);
+  double runnumber;
+  C->SetBranchAddress("g.runnum", &runnumber);
+
+  C->SetBranchStatus("MC.mc_nucl",1);
+  C->SetBranchStatus("MC.mc_fnucl",1);
+  
+  C->SetBranchStatus("bb.grinch_tdc.nclus",1);
+  C->SetBranchStatus("bb.grinch_tdc.clus.*",1);
+  
+  C->SetBranchAddress("bb.grinch_tdc.nclus",&nclustGRINCH);
+  C->SetBranchAddress("bb.grinch_tdc.clus.size", &GRINCH_clustersize);
+  C->SetBranchAddress("bb.grinch_tdc.clus.t_mean", &GRINCH_tmean);
+  C->SetBranchAddress("bb.grinch_tdc.clus.trackindex", &GRINCH_trackindex);
+  C->SetBranchAddress("bb.grinch_tdc.clus.x_mean", &GRINCH_xmean);
+  C->SetBranchAddress("bb.grinch_tdc.clus.y_mean", &GRINCH_ymean);
+  C->SetBranchAddress("bb.grinch_tdc.clus.adc", &GRINCH_adc);
+  C->SetBranchAddress("bb.grinch_tdc.clus.tot_mean", &GRINCH_totmean);
+
   //Minimal set of HCAL variables:
   C->SetBranchStatus("sbs.hcal.x",1);
   C->SetBranchStatus("sbs.hcal.y",1);
@@ -572,14 +604,30 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
   C->SetBranchStatus("bb.tr.r_y",1);
   C->SetBranchStatus("bb.tr.r_th",1);
   C->SetBranchStatus("bb.tr.r_ph",1);
+
+  C->SetBranchStatus("bb.tr.x",1);
+  C->SetBranchStatus("bb.tr.y",1);
+  C->SetBranchStatus("bb.tr.th",1);
+  C->SetBranchStatus("bb.tr.ph",1);
   
   C->SetBranchStatus("bb.tr.tg_x",1);
   C->SetBranchStatus("bb.tr.tg_y",1);
   C->SetBranchStatus("bb.tr.tg_th",1);
   C->SetBranchStatus("bb.tr.tg_ph",1);
 
+  C->SetBranchStatus("bb.x_fcp",1);
+  C->SetBranchStatus("bb.y_fcp",1);
+  C->SetBranchStatus("bb.z_fcp",1);
+  C->SetBranchStatus("bb.x_bcp",1);
+  C->SetBranchStatus("bb.y_bcp",1);
+  C->SetBranchStatus("bb.z_bcp",1);
+  
+
+  C->SetBranchStatus("bb.gem.track.t0",1);
   C->SetBranchStatus("bb.gem.track.nhits",1);
   C->SetBranchStatus("bb.gem.track.ngoodhits",1);
+  C->SetBranchStatus("bb.gem.track.chi2ndf",1);
+  C->SetBranchStatus("bb.gem.track.chi2ndf_hitquality",1);
 
   //We should probably add some hodoscope variables too, but not essential at this stage:
   
@@ -608,11 +656,31 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
   C->SetBranchAddress("bb.tr.r_th",thfp);
   C->SetBranchAddress("bb.tr.r_ph",phfp);
 
+  C->SetBranchAddress("bb.tr.x",xfp0);
+  C->SetBranchAddress("bb.tr.y",yfp0);
+  C->SetBranchAddress("bb.tr.th",thfp0);
+  C->SetBranchAddress("bb.tr.ph",phfp0);
+
   //Target track variables (other than momentum):
   C->SetBranchAddress("bb.tr.tg_x",xtgt);
   C->SetBranchAddress("bb.tr.tg_y",ytgt);
   C->SetBranchAddress("bb.tr.tg_th",thtgt);
   C->SetBranchAddress("bb.tr.tg_ph",phtgt);
+
+  C->SetBranchAddress("bb.x_fcp",xfcp);
+  C->SetBranchAddress("bb.y_fcp",yfcp);
+  C->SetBranchAddress("bb.z_fcp",zfcp);
+
+  C->SetBranchAddress("bb.x_bcp",xbcp);
+  C->SetBranchAddress("bb.y_bcp",ybcp);
+  C->SetBranchAddress("bb.z_bcp",zbcp);
+
+  C->SetBranchAddress("bb.gem.track.t0",bbtrt0);
+  C->SetBranchAddress("bb.gem.track.nhits",bbtrnhits);
+  C->SetBranchAddress("bb.gem.track.ngoodhits",bbtrngoodhits);
+  C->SetBranchAddress("bb.gem.track.chi2ndf",bbtrchi2);
+  C->SetBranchAddress("bb.gem.track.chi2ndf_hitquality",bbtrchi2hits);
+  
 
   C->SetBranchAddress("Ndata.sbs.hcal.clus.e",&nclustHCAL);
   C->SetBranchAddress("sbs.hcal.clus.x",xHCAL);
@@ -689,7 +757,10 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
   double T_ebeam, T_etheta, T_ephi, T_precon, T_pelastic, T_thetabend, T_dpel, T_W2;
   double T_pincident;
   double T_xfp, T_yfp, T_thfp, T_phfp;
+  double T_xfp0, T_yfp0, T_thfp0, T_phfp0;
   double T_thtgt, T_phtgt, T_ytgt, T_xtgt;
+  double T_xfcp, T_yfcp, T_zfcp, T_xbcp, T_ybcp, T_zbcp;
+  double T_bbtrchi2, T_bbtrchi2hits, T_bbtrnhits, T_bbtrngoodhits, T_bbtrt0;
   double T_vx, T_vy, T_vz;
   double T_BBdist, T_BBtheta;
   double T_HCALdist, T_HCALtheta;
@@ -708,6 +779,14 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
   double T_dt;
   double T_dta;
   double T_protondeflect;
+  int T_grinch_tridx;
+  int T_grinch_clustersize;
+  double T_grinch_tmean;
+  double T_grinch_xmean;
+  double T_grinch_ymean;
+  double T_grinch_adc;
+  double T_epsilon,T_epsilon_inel;
+  
   int bestHCALcluster;
   int HCALcut;
   int BBcut;
@@ -719,7 +798,9 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
   Tout->Branch( "HCALcut", &HCALcut, "HCALcut/I");
   Tout->Branch( "BBcut", &BBcut, "BBcut/I");
   Tout->Branch( "Ebeam", &T_ebeam, "Ebeam/D" );
-  Tout->Branch( "Q2", &T_Q2, "Q2/D"); 
+  Tout->Branch( "Q2", &T_Q2, "Q2/D");
+  Tout->Branch( "epsilon", &T_epsilon, "epsilon/D");
+  Tout->Branch( "epsilon_inel", &T_epsilon_inel, "epsilon/D");
   Tout->Branch( "etheta", &T_etheta, "etheta/D");
   Tout->Branch( "ephi", &T_ephi, "ephi/D");
   Tout->Branch( "ep_recon", &T_precon, "ep_recon/D");
@@ -732,10 +813,26 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
   Tout->Branch( "yfp", &T_yfp, "yfp/D");
   Tout->Branch( "thfp", &T_thfp, "thfp/D");
   Tout->Branch( "phfp", &T_phfp, "phfp/D");
+  Tout->Branch( "xfp0", &T_xfp0, "xfp0/D");
+  Tout->Branch( "yfp0", &T_yfp0, "yfp0/D");
+  Tout->Branch( "thfp0", &T_thfp0, "thfp0/D");
+  Tout->Branch( "phfp0", &T_phfp0, "phfp0/D");
   Tout->Branch( "thtgt", &T_thtgt, "thtgt/D");
   Tout->Branch( "phtgt", &T_phtgt, "phtgt/D");
   Tout->Branch( "ytgt", &T_ytgt, "ytgt/D");
   Tout->Branch( "xtgt", &T_xtgt, "xtgt/D");
+  Tout->Branch( "xfcp", &T_xfcp, "xfcp/D");
+  Tout->Branch( "yfcp", &T_yfcp, "yfcp/D");
+  Tout->Branch( "zfcp", &T_zfcp, "zfcp/D");
+  Tout->Branch( "xbcp", &T_xbcp, "xbcp/D");
+  Tout->Branch( "ybcp", &T_ybcp, "ybcp/D");
+  Tout->Branch( "zbcp", &T_zbcp, "zbcp/D");
+  
+  Tout->Branch( "bbtrchi2", &T_bbtrchi2, "bbtrchi2/D");
+  Tout->Branch( "bbtrchi2hits", &T_bbtrchi2hits, "bbtrchi2hits/D");
+  Tout->Branch( "bbtrnhits", &T_bbtrnhits, "bbtrnhits/D");
+  Tout->Branch( "bbtrngoodhits", &T_bbtrngoodhits, "bbtrngoodhits/D");
+  Tout->Branch( "bbtrt0", &T_bbtrt0, "bbtrt0/D");
   Tout->Branch( "vx", &T_vx, "vx/D");
   Tout->Branch( "vy", &T_vy, "vy/D");
   Tout->Branch( "vz", &T_vz, "vz/D");
@@ -806,6 +903,14 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
   Tout->Branch( "xblkHCAL", xblkHCAL, "xblkHCAL[nblkHCAL]/D" );
   Tout->Branch( "yblkHCAL", yblkHCAL, "yblkHCAL[nblkHCAL]/D" );
   
+  Tout->Branch( "grinch_clsize", &T_grinch_clustersize, "grinch_clsize/I");
+  Tout->Branch( "grinch_tridx", &T_grinch_tridx, "grinch_tridx/I");
+  Tout->Branch( "grinch_tmean", &T_grinch_tmean, "grinch_tmean/D");
+  Tout->Branch( "grinch_xmean", &T_grinch_xmean, "grinch_xmean/D"); 
+  Tout->Branch( "grinch_ymean", &T_grinch_ymean, "grinch_ymean/D");
+  Tout->Branch( "grinch_adc", &T_grinch_adc, "grinch_adc/D");
+
+  
   Long64_t NTOT = C->GetEntriesFast();
 
   //First pass: accumulate sums required for the fit: 
@@ -819,8 +924,9 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
   long ievent = 0;
   while( C->GetEntry(ievent) ){
   
-    if( ievent % 100000 == 0 ) cout << ievent << endl;
-
+    if( ievent % 100000 == 0 ) {
+      cout << ievent << ", run number = " << runnumber << endl;
+    }
     //Long64_t chainEntry = ievent;
 
     //    C->GetEntry(ievent);
@@ -839,12 +945,16 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
 
       TString srunnum( fname( start, 5 ) );
 
-      cout << "new file name = \"" << fname << "\", run number extracted from file name = \"" << srunnum << "\"" << endl;
-      T_runnum = srunnum.Atoi();
-      
+      // cout << "new file name = \"" << fname << "\", run number extracted from file name = \"" << srunnum << "\"" 
+      // 	   << ", runnumber from g.runnum = " << int(runnumber) << endl;
+      //T_runnum = srunnum.Atoi();
+      //T_runnum = runnumber;
+
       treenum = currenttreenum;
       GlobalCut->UpdateFormulaLeaves();
     }
+
+    T_runnum = runnumber;
 
     ievent++;
     
@@ -860,6 +970,20 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
     if( int(ntrack) >= 1 && passed_global_cut ){
       //The first thing we want to do is to calculate the "true" electron momentum incident on BigBite:
       double Ebeam_corrected = ebeam - MeanEloss;
+
+      T_xfcp = xfcp[0];
+      T_yfcp = yfcp[0];
+      T_zfcp = zfcp[0];
+
+      T_xbcp = xbcp[0];
+      T_ybcp = ybcp[0];
+      T_zbcp = zbcp[0];
+
+      T_xfp0 = xfp0[0];
+      T_yfp0 = yfp0[0];
+      T_thfp0 = thfp0[0];
+      T_phfp0 = phfp0[0];
+      
 
       T_ebeam = Ebeam_corrected;
       
@@ -885,6 +1009,12 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
       T_Q2 = Q2recon;
       T_W2 = W2recon;
 
+      //1 + nu^2 / Q^2 = 1 + Q^4/(4M^2 Q^2) = 1 + tau
+      
+      T_epsilon_inel = pow(1.0+2.0*(1.0+pow(nu_recon,2)/Q2recon)*pow(tan(etheta/2.0),2),-1);
+
+      T_epsilon = pow(1.0+2.0*(1.0+Q2recon/(4.0*pow(Mp,2)))*pow(tan(etheta/2.0),2),-1);
+      
       T_xfp = xfp[0];
       T_yfp = yfp[0];
       T_thfp = thfp[0];
@@ -1008,7 +1138,7 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
       //Calculate expected proton deflection using crude model:
       double BdL = sbsfield * sbsmaxfield * Dgap;
       
-      //thetabend = 0.3 * BdL: 
+      //thetabend = 0.3 * BdL/p: 
       double proton_deflection = tan( 0.3 * BdL / qvect.Mag() ) * (hcaldist - (sbsdist + Dgap/2.0) );
       
       T_protondeflect = proton_deflection;
@@ -1034,10 +1164,9 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
 	//The following chooses the highest-energy cluster passing the coincidence time cut:
 	bool isbest = false;
 
-	
-	if( fabs( deltat_temp - dt0 ) <= dtcut ){
+	if( fabs( deltat_temp - dt0 ) <= dtcut || hcal_selectionflag >= 2 ){ //ignore time cut if selection flag > 1
 	  
-	  bool isbest = ibest_HCAL < 0 || EHCAL[iclust] > maxE;
+	  isbest = ibest_HCAL < 0 || EHCAL[iclust] > maxE;
 	  if( hcal_selectionflag == 1 ) isbest = ibest_HCAL < 0 || std::min( thpq_p_temp, thpq_n_temp ) < minthpq;
 
 	  if(  std::min(thpq_p_temp, thpq_n_temp) < minthpq ){
@@ -1111,10 +1240,6 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
       }
       
       bestHCALcluster = ibest_HCAL;
-      
-      
-
-
       
       //Now we need to calculate the "true" trajectory bend angle for the electron from the reconstructed angles:
       TVector3 enhat_tgt( thtgt[0], phtgt[0], 1.0 );
@@ -1228,7 +1353,20 @@ void ElasticEventSelection_MultiCluster( const char *configfilename, const char 
 	  
 	}
       }
-      
+    
+      T_grinch_tridx = int( GRINCH_trackindex );
+      T_grinch_clustersize = int( GRINCH_clustersize );
+      T_grinch_tmean = GRINCH_tmean;
+      T_grinch_xmean = GRINCH_xmean;
+      T_grinch_ymean = GRINCH_ymean;
+      T_grinch_adc = GRINCH_adc;
+
+      T_bbtrchi2 = bbtrchi2[0];
+      T_bbtrchi2hits = bbtrchi2hits[0];
+      T_bbtrnhits = bbtrnhits[0];
+      T_bbtrngoodhits = bbtrngoodhits[0];
+      T_bbtrt0 = bbtrt0[0];
+  
       //if( ibest_HCAL >= 0 ) Tout->Fill();
       Tout->Fill();
     }
